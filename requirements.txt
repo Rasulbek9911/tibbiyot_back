@@ -8,3 +8,4 @@ django-rosetta==0.9.9
 djangorestframework==3.14.0
 Markdown==3.5.1
 Pillow==10.1.0
+django-cors-headers==4.3.1
