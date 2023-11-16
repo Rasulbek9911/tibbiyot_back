@@ -1,6 +1,8 @@
 from rest_framework.generics import ListAPIView
-from .serializers import CommonInformationSerializer,MeyoriyHujjatlarSerializer
-from .models import CommonInformation,MeyoriyHujjatlar
+from .serializers import CommonInformationSerializer, MeyoriyHujjatlarSerializer
+from .models import CommonInformation, MeyoriyHujjatlar
+
+
 
 
 class CommonInformationView(ListAPIView):
