@@ -50,6 +50,11 @@ INSTALLED_APPS = [
     'home_app',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'home_app.pagination.CustomPagination',
+    'PAGE_SIZE': 9
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
