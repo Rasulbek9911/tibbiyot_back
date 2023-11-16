@@ -6,7 +6,8 @@ from parler.models import TranslatableModel, TranslatedFields
 
 class CommonInformation(TranslatableModel):
     translations = TranslatedFields(
-        title=models.CharField(_('title'), max_length=256),
+        title=models.CharField(
+            _('title'), max_length=256, null=True, blank=True),
         description=RichTextUploadingField(_('description')),
     )
 
