@@ -32,3 +32,38 @@ class MeyoriyHujjatlar(TranslatableModel):
 
     def __str__(self) -> str:
         return self.title
+
+class SsbBuyruq(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(_('title'), max_length=256),
+        file=models.FileField(_('file'),
+                              upload_to='ssb_buyruq/', null=True, blank=True),
+
+        created_at=models.DateTimeField(auto_now=True),
+        updated_at=models.DateTimeField(auto_now_add=True),
+    )
+
+    def __str__(self) -> str:
+        return self.title
+    
+
+class Rahbariyat(TranslatableModel):
+    translations = TranslatedFields(
+        ism=models.CharField(_('ism'), max_length=50),
+        familya=models.CharField(_('familya'), max_length=50),
+        sharf=models.CharField(_('sharf'), max_length=50),
+        rasm = models.ImageField(_('rasm'),upload_to='RahbariyatRasm/'),
+        umumiy = RichTextUploadingField(_("umumiy ma'lumot"))
+    )
+
+    def __str__(self):
+        return f"{self.ism} {self.familya}"
+    
+class Hamkorlar(TranslatableModel):
+    translations = TranslatedFields(
+        name=models.CharField(_('nomi'), max_length=100),
+        faoliyat=RichTextUploadingField(_('faoliyat')),
+        rasm=models.ImageField(_('rasm'),upload_to='hamkors/',null=True,blank=True),
+    )
+    def __str__(self):
+        return self.name

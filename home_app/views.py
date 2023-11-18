@@ -1,8 +1,7 @@
 from rest_framework.generics import ListAPIView
-from .serializers import CommonInformationSerializer, MeyoriyHujjatlarSerializer
-from .models import CommonInformation, MeyoriyHujjatlar
-from .pagination import CustomPagination
-
+from .serializers import CommonInformationSerializer, MeyoriyHujjatlarSerializer, RahbariyatSerializer,SsbBuyruqSerializer
+from .models import CommonInformation, MeyoriyHujjatlar, Rahbariyat,SsbBuyruq
+from .pagination import DoubleShort
 
 
 class CommonInformationView(ListAPIView):
@@ -10,7 +9,16 @@ class CommonInformationView(ListAPIView):
     queryset = CommonInformation.objects.all()
 
 
-class MeyoriyHujjatlarSerializerView(ListAPIView):
+class MeyoriyHujjatlarView(ListAPIView):
     serializer_class = MeyoriyHujjatlarSerializer
-    pagination_class = CustomPagination
+    pagination_class = DoubleShort
     queryset = MeyoriyHujjatlar.objects.all()
+
+
+class RahbariyatView(ListAPIView):
+    serializer_class = RahbariyatSerializer
+    queryset = Rahbariyat.objects.all()
+
+class SsbBuyruqView(ListAPIView):
+    serializer_class = SsbBuyruqSerializer
+    queryset = SsbBuyruq.objects.all()

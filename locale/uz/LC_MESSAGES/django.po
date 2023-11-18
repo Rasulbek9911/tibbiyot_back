@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-14 15:27+0500\n"
-"PO-Revision-Date: 2023-11-14 10:35+0000\n"
+"PO-Revision-Date: 2023-11-17 09:18+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1030,7 +1030,7 @@ msgid "February"
 msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:69
-msgctxt "alt. month"
+msgctxt "alt. month"qisqacha ma'lumot
 msgid "March"
 msgstr ""
 
@@ -1041,7 +1041,7 @@ msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:71
 msgctxt "alt. month"
-msgid "May"
+msgid "May"qisqacha ma'lumot
 msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:72
@@ -1141,7 +1141,7 @@ msgid_plural "%(num)d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: venv/lib/python3.10/site-packages/django/views/csrf.py:111
+#: venv/lib/python3.10/site-packqisqacha ma'lumotages/django/views/csrf.py:111
 msgid "Forbidden"
 msgstr ""
 
