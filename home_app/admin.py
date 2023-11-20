@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import CommonInformation, MeyoriyHujjatlar,SsbBuyruq,Rahbariyat,Hamkorlar
+from .models import (
+    CommonInformation,
+    MeyoriyHujjatlar,
+    SsbBuyruq,
+    Rahbariyat,
+    Hamkorlar,
+)
 from parler.admin import TranslatableAdmin
 
 admin.site.register(CommonInformation, TranslatableAdmin)

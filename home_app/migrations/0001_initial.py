@@ -8,85 +8,160 @@ import parler.models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='CommonInformation',
+            name="CommonInformation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True,
-                 primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=(parler.models.TranslatableModel, models.Model)
+            bases=(parler.models.TranslatableModel, models.Model),
         ),
         migrations.CreateModel(
-            name='MeyoriyHujjatlar',
+            name="MeyoriyHujjatlar",
             fields=[
-                ('id', models.BigAutoField(auto_created=True,
-                 primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=(parler.models.TranslatableModel, models.Model)
+            bases=(parler.models.TranslatableModel, models.Model),
         ),
         migrations.CreateModel(
-            name='MeyoriyHujjatlarTranslation',
+            name="MeyoriyHujjatlarTranslation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True,
-                 primary_key=True, serialize=False, verbose_name='ID')),
-                ('language_code', models.CharField(
-                    db_index=True, max_length=15, verbose_name='Language')),
-                ('title', models.CharField(max_length=256, verbose_name='title')),
-                ('description', models.CharField(blank=True,
-                 max_length=256, null=True, verbose_name='description')),
-                ('image', models.ImageField(blank=True, null=True,
-                 upload_to='MeyoriyHujjatlar/images/', verbose_name='image')),
-                ('file', models.FileField(blank=True, null=True,
-                 upload_to='MeyoriyHujjatlar/files/', verbose_name='file')),
-                ('created_at', models.DateTimeField(auto_now=True)),
-                ('updated_at', models.DateTimeField(auto_now_add=True)),
-                ('master', parler.fields.TranslationsForeignKey(editable=False, null=True,
-                 on_delete=django.db.models.deletion.CASCADE, related_name='translations', to='home_app.meyoriyhujjatlar')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "language_code",
+                    models.CharField(
+                        db_index=True, max_length=15, verbose_name="Language"
+                    ),
+                ),
+                ("title", models.CharField(max_length=256, verbose_name="title")),
+                (
+                    "description",
+                    models.CharField(
+                        blank=True,
+                        max_length=256,
+                        null=True,
+                        verbose_name="description",
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="MeyoriyHujjatlar/images/",
+                        verbose_name="image",
+                    ),
+                ),
+                (
+                    "file",
+                    models.FileField(
+                        blank=True,
+                        null=True,
+                        upload_to="MeyoriyHujjatlar/files/",
+                        verbose_name="file",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now=True)),
+                ("updated_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "master",
+                    parler.fields.TranslationsForeignKey(
+                        editable=False,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="translations",
+                        to="home_app.meyoriyhujjatlar",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'meyoriy hujjatlar Translation',
-                'db_table': 'home_app_meyoriyhujjatlar_translation',
-                'db_tablespace': '',
-                'managed': True,
-                'default_permissions': (),
-                'unique_together': {('language_code', 'master')},
+                "verbose_name": "meyoriy hujjatlar Translation",
+                "db_table": "home_app_meyoriyhujjatlar_translation",
+                "db_tablespace": "",
+                "managed": True,
+                "default_permissions": (),
+                "unique_together": {("language_code", "master")},
             },
-            bases=(parler.models.TranslatableModel, models.Model)
+            bases=(parler.models.TranslatableModel, models.Model),
         ),
         migrations.CreateModel(
-            name='CommonInformationTranslation',
+            name="CommonInformationTranslation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True,
-                 primary_key=True, serialize=False, verbose_name='ID')),
-                ('language_code', models.CharField(
-                    db_index=True, max_length=15, verbose_name='Language')),
-                ('title', models.CharField(max_length=256, verbose_name='title')),
-                ('description', ckeditor_uploader.fields.RichTextUploadingField(
-                    verbose_name='description')),
-                ('master', parler.fields.TranslationsForeignKey(editable=False, null=True,
-                 on_delete=django.db.models.deletion.CASCADE, related_name='translations', to='home_app.commoninformation')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "language_code",
+                    models.CharField(
+                        db_index=True, max_length=15, verbose_name="Language"
+                    ),
+                ),
+                ("title", models.CharField(max_length=256, verbose_name="title")),
+                (
+                    "description",
+                    ckeditor_uploader.fields.RichTextUploadingField(
+                        verbose_name="description"
+                    ),
+                ),
+                (
+                    "master",
+                    parler.fields.TranslationsForeignKey(
+                        editable=False,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="translations",
+                        to="home_app.commoninformation",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'common information Translation',
-                'db_table': 'home_app_commoninformation_translation',
-                'db_tablespace': '',
-                'managed': True,
-                'default_permissions': (),
-                'unique_together': {('language_code', 'master')},
+                "verbose_name": "common information Translation",
+                "db_table": "home_app_commoninformation_translation",
+                "db_tablespace": "",
+                "managed": True,
+                "default_permissions": (),
+                "unique_together": {("language_code", "master")},
             },
-            bases=(parler.models.TranslatableModel, models.Model)
+            bases=(parler.models.TranslatableModel, models.Model),
         ),
     ]

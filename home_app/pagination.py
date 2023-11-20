@@ -8,7 +8,6 @@ class CustomPagination(PageNumberPagination):
     page_size = 9
 
     def get_paginated_response(self, data):
-
         return Response(
             {
                 "page_size": self.get_page_size(self.request),

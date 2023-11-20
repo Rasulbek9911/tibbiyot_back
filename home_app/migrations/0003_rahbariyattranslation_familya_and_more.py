@@ -5,39 +5,45 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('home_app', '0002_rahbariyat_ssbbuyruq_alter_commoninformation_options_and_more'),
+        (
+            "home_app",
+            "0002_rahbariyat_ssbbuyruq_alter_commoninformation_options_and_more",
+        ),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='rahbariyattranslation',
-            name='familya',
-            field=models.CharField(default=1, max_length=50, verbose_name='familya'),
+            model_name="rahbariyattranslation",
+            name="familya",
+            field=models.CharField(default=1, max_length=50, verbose_name="familya"),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='rahbariyattranslation',
-            name='rasm',
-            field=models.ImageField(default=1, upload_to='RahbariyatRasm/', verbose_name='rasm'),
+            model_name="rahbariyattranslation",
+            name="rasm",
+            field=models.ImageField(
+                default=1, upload_to="RahbariyatRasm/", verbose_name="rasm"
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='rahbariyattranslation',
-            name='sharf',
-            field=models.CharField(default=1, max_length=50, verbose_name='sharf'),
+            model_name="rahbariyattranslation",
+            name="sharf",
+            field=models.CharField(default=1, max_length=50, verbose_name="sharf"),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='rahbariyattranslation',
-            name='umumiy',
-            field=ckeditor_uploader.fields.RichTextUploadingField(default=1, verbose_name="umumiy ma'lumot"),
+            model_name="rahbariyattranslation",
+            name="umumiy",
+            field=ckeditor_uploader.fields.RichTextUploadingField(
+                default=1, verbose_name="umumiy ma'lumot"
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='rahbariyattranslation',
-            name='ism',
-            field=models.CharField(max_length=50, verbose_name='ism'),
+            model_name="rahbariyattranslation",
+            name="ism",
+            field=models.CharField(max_length=50, verbose_name="ism"),
         ),
     ]

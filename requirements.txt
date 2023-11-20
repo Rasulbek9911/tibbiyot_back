@@ -14,3 +14,4 @@ inflection==0.5.1
 packaging==23.2 
 pyyaml==6.0.1 
 uritemplate==4.1.1
+black==23.11.0
