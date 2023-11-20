@@ -132,7 +132,8 @@ class RahbariyatSerializer(TranslatableModelSerializer):
         fields = '__all__'
 
 class SsbBuyruqSerializer(TranslatableModelSerializer):
-    translations = TranslatedFieldsField(shared_model=Rahbariyat)
+    translations = TranslatedFieldsField(shared_model=SsbBuyruq)
+
     def to_representation(self, instance):
         inst_rep = super().to_representation(instance)
         request = self.context.get('request')
