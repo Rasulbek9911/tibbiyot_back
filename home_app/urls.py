@@ -4,6 +4,10 @@ from .views import (
     MeyoriyHujjatlarView,
     RahbariyatView,
     SsbBuyruqView,
+    TuzulmaView,
+    KategoriyaHamkorView,
+    HamkorlarView,    
+
 )
 
 urlpatterns = [
@@ -11,4 +15,7 @@ urlpatterns = [
     path("meyoriy_hujjat", MeyoriyHujjatlarView.as_view()),
     path("rahbariyat", RahbariyatView.as_view()),
     path("ssb_buyruq", SsbBuyruqView.as_view()),
+    path("tuzulma", TuzulmaView.as_view()),
+    path("kategoriya_hamkor", KategoriyaHamkorView.as_view()),
+    path("hamkorlar/<int:pk>/", HamkorlarView.as_view()),
 ]

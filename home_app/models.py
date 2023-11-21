@@ -6,7 +6,8 @@ from parler.models import TranslatableModel, TranslatedFields
 
 class CommonInformation(TranslatableModel):
     translations = TranslatedFields(
-        title=models.CharField(_("title"), max_length=256, null=True, blank=True),
+        title=models.CharField(
+            _("title"), max_length=256, null=True, blank=True),
         description=RichTextUploadingField(_("description")),
     )
 
@@ -61,13 +62,33 @@ class Rahbariyat(TranslatableModel):
     def __str__(self):
         return f"{self.ism} {self.familya}"
 
-
-class Hamkorlar(TranslatableModel):
+class KategoriyaHamkor(TranslatableModel):
     translations = TranslatedFields(
-        name=models.CharField(_("nomi"), max_length=100),
-        faoliyat=RichTextUploadingField(_("faoliyat")),
-        rasm=models.ImageField(_("rasm"), upload_to="hamkors/", null=True, blank=True),
+        name=models.CharField(_('name'),max_length=100),
     )
 
     def __str__(self):
         return self.name
+
+
+class Hamkorlar(TranslatableModel):
+    translations = TranslatedFields(
+        category=models.ForeignKey(KategoriyaHamkor, on_delete=models.CASCADE,default=None),
+        name=models.CharField(_("nomi"), max_length=100),
+        faoliyat=RichTextUploadingField(_("faoliyat")),
+        rasm=models.ImageField(
+            _("rasm"), upload_to="hamkors/", null=True, blank=True),
+    )
+
+    def __str__(self):
+        return self.name
+    
+    def __unicode__(self):
+        return self.category
+
+
+class Tuzilma(TranslatableModel):
+    translations = TranslatedFields(
+        image=models.ImageField(_('image'), upload_to='tuzilma/')
+    )
+
