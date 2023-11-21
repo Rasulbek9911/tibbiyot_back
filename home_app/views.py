@@ -8,9 +8,18 @@ from .serializers import (
     KategoriyaHamkorSerializer,
     HamkorlarSerializer,
 )
-from .models import CommonInformation, MeyoriyHujjatlar, Rahbariyat, SsbBuyruq, Tuzilma, KategoriyaHamkor, Hamkorlar
+from .models import (
+    CommonInformation,
+    MeyoriyHujjatlar,
+    Rahbariyat,
+    SsbBuyruq,
+    Tuzilma,
+    KategoriyaHamkor,
+    Hamkorlar,
+)
 from .pagination import DoubleShort
 from rest_framework.response import Response
+
 
 class CommonInformationView(ListAPIView):
     serializer_class = CommonInformationSerializer
@@ -48,6 +57,8 @@ class HamkorlarView(ListAPIView):
     serializer_class = HamkorlarSerializer
 
     def get_queryset(self):
-        lang = self.request.headers['Accept-Language']
-        queryset = Hamkorlar.objects.filter(translations__category=self.kwargs['pk'],translations__language_code=lang)
+        lang = self.request.headers["Accept-Language"]
+        queryset = Hamkorlar.objects.filter(
+            translations__category=self.kwargs["pk"], translations__language_code=lang
+        )
         return queryset

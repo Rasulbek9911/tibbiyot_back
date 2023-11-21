@@ -6,8 +6,7 @@ from .views import (
     SsbBuyruqView,
     TuzulmaView,
     KategoriyaHamkorView,
-    HamkorlarView,    
-
+    HamkorlarView,
 )
 
 urlpatterns = [

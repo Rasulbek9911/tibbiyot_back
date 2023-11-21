@@ -1,5 +1,13 @@
 from rest_framework import serializers
-from .models import CommonInformation, MeyoriyHujjatlar, Rahbariyat, SsbBuyruq, Tuzilma, KategoriyaHamkor, Hamkorlar
+from .models import (
+    CommonInformation,
+    MeyoriyHujjatlar,
+    Rahbariyat,
+    SsbBuyruq,
+    Tuzilma,
+    KategoriyaHamkor,
+    Hamkorlar,
+)
 from parler_rest.serializers import TranslatableModelSerializer
 from parler_rest.fields import TranslatedFieldsField
 from django.conf import settings
@@ -27,8 +35,10 @@ class BaseTranslatableSerializer(TranslatableModelSerializer):
                 translations = inst_rep.pop(field_name)
                 if lang_code not in translations:
                     parler_default_settings = settings.PARLER_LANGUAGES["default"]
-                    fallback_setting = parler_default_settings.get(
-                        "fallback") or parler_default_settings.get("fallbacks", [])[0]
+                    fallback_setting = (
+                        parler_default_settings.get("fallback")
+                        or parler_default_settings.get("fallbacks", [])[0]
+                    )
                     lang_code = fallback_setting
 
                 for lang, translation_fields in translations.items():
@@ -68,17 +78,21 @@ class SsbBuyruqSerializer(BaseTranslatableSerializer):
 class TuzulmaSerializer(BaseTranslatableSerializer):
     class Meta:
         model = Tuzilma
-        fields = ('image',)
+        fields = ("image",)
 
 
 class KategoriyaHamkorSerializer(BaseTranslatableSerializer):
     class Meta:
         model = KategoriyaHamkor
-        fields = ('id', 'name',)
-    
+        fields = (
+            "id",
+            "name",
+        )
+
+
 class HamkorlarSerializer(BaseTranslatableSerializer):
     category = KategoriyaHamkorSerializer()
-    
+
     class Meta:
         model = Hamkorlar
-        fields = '__all__'
+        fields = "__all__"
