@@ -33,6 +33,7 @@ class MeyoriyHujjatlar(TranslatableModel):
 
     def __str__(self) -> str:
         return self.title
+    
     class Meta:
         verbose_name = _("Meyoriy hujjat")
         verbose_name_plural = _("Meyoriy hujjatlar")
