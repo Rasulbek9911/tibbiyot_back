@@ -33,7 +33,7 @@ class MeyoriyHujjatlar(TranslatableModel):
 
     def __str__(self) -> str:
         return self.title
-    
+
     class Meta:
         verbose_name = _("Meyoriy hujjat")
         verbose_name_plural = _("Meyoriy hujjatlar")
@@ -51,10 +51,11 @@ class SsbBuyruq(TranslatableModel):
 
     def __str__(self) -> str:
         return self.title
+
     class Meta:
         verbose_name = _("Ssb buyruq")
         verbose_name_plural = _("Ssb buyruqlar")
-    
+
 
 class Rahbariyat(TranslatableModel):
     translations = TranslatedFields(
@@ -80,6 +81,7 @@ class KategoriyaHamkor(TranslatableModel):
 
     def __str__(self):
         return self.name
+
     class Meta:
         verbose_name = _("Kategoriya hamkor")
         verbose_name_plural = _(" Kategoriya hamkorlar")
@@ -101,7 +103,6 @@ class Hamkorlar(TranslatableModel):
     class Meta:
         verbose_name = _("Hamkor")
         verbose_name_plural = _("Hamkorlar")
-
 
 
 class Tuzilma(TranslatableModel):
