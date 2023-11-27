@@ -1,0 +1,80 @@
+.faoliyatgaOidMeyoriyHujjat{
+    margin-bottom: 100px;
+    .hujjat{
+        display: flex;
+        column-gap: 50px;
+        width: 100%;
+        .desc{
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+         
+            .row{
+                margin: 0;
+                display: flex;
+                column-gap: 20px;
+                flex-wrap: wrap;
+                width: 100%;
+                h1{
+                    color: var(--Teal-100, #081A1C);
+                    font-family: Inter;
+                    font-size: 48px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 110%; /* 52.8px */
+                    letter-spacing: 0.2px;
+                    margin-bottom: 50px;
+                }
+                .cardss {
+                    padding: 15px;
+                    border-radius: 12px;
+                    border: 1px solid var(--light-grayscale-light-gray-1, #c1cbd1);
+                    background: var(--light-white, #fff);
+                    width: 48%;
+                    margin-bottom: 20px;
+                    padding: 16px;
+                    h3 {
+                      margin: 0px 0px 12px 0px;
+                      color: var(--light-grayscale-dark-gray-1, #182026);
+                      font-family: Inter;
+                      font-size: 16px;
+                      font-style: normal;
+                      font-weight: 600;
+                      line-height: 22px; /* 122.222% */
+                      letter-spacing: 0.2px;
+                    }
+                    .download {
+                      width: 160px;
+                      text-decoration: none;
+                      border-radius: 8px;
+                      border: 1px solid #003066;
+                      color: #003066;
+                      padding: 8px 16px;
+                      display: flex;
+                      align-items: center;
+                      column-gap: 10px;
+                      margin-bottom: 20px;
+                      background: none;
+                      &:hover {
+                        background-color: #003066;
+                        color: white;
+                      }
+                    }
+                    p {
+                      display: flex;
+                      column-gap: 8px;
+                      margin: 0;
+                      padding: 0;
+                    }
+                  }
+            }
+        }
+        .layout{
+            width: 30%;
+          display: flex;
+          flex-direction: column;
+          row-gap: 60px;
+        }
+    }
+}

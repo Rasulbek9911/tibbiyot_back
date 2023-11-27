@@ -11,6 +11,8 @@ class FanSerializer(ModelSerializer):
             "yunalish",
             "rasm",
         )
+
+
 class FanSerializerForYunalish(ModelSerializer):
     class Meta:
         model = Fan
@@ -18,6 +20,7 @@ class FanSerializerForYunalish(ModelSerializer):
             "id",
             "name",
         )
+
 
 class YunalishSerializer(ModelSerializer):
     fans = FanSerializerForYunalish(many=True)

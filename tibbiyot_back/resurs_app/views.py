@@ -1,4 +1,4 @@
-from .serializers import YunalishSerializer, FanSerializer,MavzuSerializer
+from .serializers import YunalishSerializer, FanSerializer, MavzuSerializer
 from rest_framework.generics import ListAPIView
 from .models import Yunalish, Fan, Mavzu
 

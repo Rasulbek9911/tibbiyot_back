@@ -1,0 +1,55 @@
+.oquvResurslarigaQoyilganTalablar {
+    .content {
+      display: flex;
+      column-gap: 50px;
+      width: 100%;
+      .desc {
+        width: 70%;
+        h1 {
+          color: var(--Teal-100, #081a1c);
+          font-family: Inter;
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 110%; /* 52.8px */
+          letter-spacing: 0.2px;
+          margin-bottom: 20px;
+        }
+        .downloadBtn {
+          width: 100%;
+          display: flex;
+          justify-content: end;
+          .download {
+            border-radius: 8px;
+            border: 1px solid #003066;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            margin-bottom: 50px;
+            background: none;
+            &:hover {
+              background-color: #003066;
+              color: white;
+            }
+          }
+        }
+        p {
+          margin: 0;
+          color: var(--Cool-Gray-70, #4d5358);
+          text-align: justify;
+          font-family: Inter;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 148%; /* 23.68px */
+        }
+      }
+      .layout {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 50px;
+      }
+    }
+  }

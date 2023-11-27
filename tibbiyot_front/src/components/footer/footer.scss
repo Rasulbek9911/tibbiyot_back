@@ -1,0 +1,155 @@
+.footer {
+  background: #252c54;
+  .footerTop {
+    display: flex;
+    flex-direction: column;
+    .footerLogo {
+      text-decoration: none;
+      background: #091242;
+      width: 25%;
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+      padding: 20px 0px 0px 20px;
+      .logoBlok {
+        width: 87px;
+        height: 92px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      p {
+        color: #fff;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  .footerBottom {
+    background: #091242;
+    padding: 25px 0px 50px;
+    .footerNavbar {
+      display: flex;
+      justify-content: space-between;
+      .col:nth-child(1) {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+        p {
+          margin: 0;
+          color: #fff;
+          font-family: "Krub";
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 135.023%;
+          a {
+            color: #fff;
+            font-family: "Krub";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 135.023%;
+          }
+        }
+      }
+      .col:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        a {
+          color: var(--light-grayscale-light-gray-5, #f5f8fa);
+          font-feature-settings: "clig" off, "liga" off;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px;
+          text-decoration: none;
+          &:hover {
+            color: cornflowerblue;
+          }
+        }
+      }
+      .col:nth-child(3) {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        a {
+          color: var(--light-grayscale-light-gray-5, #f5f8fa);
+          font-feature-settings: "clig" off, "liga" off;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px;
+          text-decoration: none;
+          &:hover {
+            color: cornflowerblue;
+          }
+        }
+      }
+      .col:nth-child(4) {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        form {
+          .footerMail {
+            border: 1px solid #4e5683;
+            padding: 20px;
+            width: 100%;
+            background: none;
+            color: white;
+          }
+        }
+        .logoshow {
+          display: flex;
+          column-gap: 30px;
+          align-items: center;
+          button {
+            display: flex;
+            padding: 19px 36px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(
+              94deg,
+              #ffb629 -1.21%,
+              #ffda56 58.66%,
+              #ffd7a6 116.84%
+            );
+            a {
+              color: #23212a;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  hr {
+    margin: 0;
+    color: white;
+  }
+  .footerNextBottom {
+    background: #091242;
+    padding: 0px 0px 10px;
+    p {
+      text-align: center;
+      color: #fff;
+      font-family: Krub;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 250%;
+      margin: 0;
+    }
+  }
+}

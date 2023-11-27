@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import YunalishView, FanView,MavzuView
+from .views import YunalishView, FanView, MavzuView
 
 urlpatterns = [
     path("yunalish", YunalishView.as_view()),

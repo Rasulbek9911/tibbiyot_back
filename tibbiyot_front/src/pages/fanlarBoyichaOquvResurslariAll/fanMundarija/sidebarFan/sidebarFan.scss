@@ -1,0 +1,44 @@
+.sidebar{
+    width: 100%;
+        ul{
+            border: 2px solid #898989;
+            // border-radius: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            li{
+                border-bottom: 0.5px solid #898989;
+                a{
+                    padding: 0px 20px;  
+                    display: flex;
+                    align-items: center;
+                    height: 40px;
+                    display: flex;
+                    column-gap: 12px;
+                    text-decoration: none;
+                    p{
+                        margin: 0;
+                        color: #898989;
+                        font-family: DM Sans;
+                        font-size: 17px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 20px; /* 125% */ 
+                    }
+                    &:hover{
+                        background-color: #f5f4f4;
+                        // border-radius: 10px;
+                    }
+                }
+                &:last-child{
+                    border-bottom: none;
+                }
+                // &:first-child{
+                //     border-bottom: none;
+                // }
+            }
+        }
+    
+}

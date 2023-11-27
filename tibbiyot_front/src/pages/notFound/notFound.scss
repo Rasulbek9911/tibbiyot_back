@@ -1,0 +1,50 @@
+.notFound{
+    
+    width: 100%;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -50px;
+    h1{
+        color: #1C1F35;
+        text-align: center;
+        font-family: Rubik;
+        font-size: 350px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 20px;
+        margin: 0;
+    }
+    h3{
+        color: #1C1F35;
+        text-align: center;
+        font-family: Rubik;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 10px;
+    }
+    p{
+        color: #666C89;
+        text-align: center;
+        font-family: Krub;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 151.523%; /* 24.244px */
+        margin-bottom: 30px;
+    }
+    a{
+        text-decoration: none;
+        color: #1C1F35;
+        border: none;
+        padding: 19px 45px;
+        background: linear-gradient(94deg, #FFB629 -1.21%, #FFDA56 58.66%, #FFD7A6 116.84%);
+        &:hover{
+            background: linear-gradient(94deg, #eca821 -1.21%, #e9c64a 58.66%, #face98 116.84%);
+        }
+    }
+}

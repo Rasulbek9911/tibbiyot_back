@@ -1,0 +1,122 @@
+.fanlarMundarija{
+    margin-bottom: 100px;
+    padding: 0;
+    h1{
+        color: var(--Teal-100, #081A1C);
+        font-family: Inter;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 110%; /* 52.8px */
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+    }
+    .header{
+        display: flex;
+        align-items: center;
+        column-gap: 50px;
+        margin-bottom: 40px;
+        .image{
+            width: 300px;
+            height: 200px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+        }
+        .desc{
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+            h1{
+                margin: 0;
+                padding: 0;
+                color: var(--Gray-1, #333);
+                font-family: Poppins;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 149%; /* 44.7px */
+                text-transform: uppercase;
+            }
+            p{
+                margin: 0;
+                padding: 0;
+                color: rgba(51, 51, 51, 0.80);
+                font-family: Inter;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 150%; /* 30px */
+            }
+        }
+    }
+    .main{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+        .fan{
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 12px;
+            width: 70%;
+            .header{
+                padding: 0;
+                margin: 0;
+                display: flex !important;
+                justify-content: space-between;
+                align-items: center;
+                .title{
+                    color: #1F2136;
+                    font-feature-settings: 'clig' off, 'liga' off;
+                    font-family: Inter;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 130%; /* 39px */
+                }
+                .btn {
+                    border: 1px solid #ccc;
+                    &:hover {
+                      background-color: #e1dede;
+                    }
+                  }
+                  .btn.active {
+                    color: red;
+                  }
+            }
+            .list{
+                margin: 20px 0px 20px 0px;
+                padding: 0px 0px 0px 30px;
+                display: flex;
+                flex-direction: column;
+                row-gap: 5px;
+                list-style-type: disc;
+                .item{
+                    a{
+                        text-decoration: none;
+                        p{
+                            padding: 0;
+                            margin: 0;
+                            color: rgba(15, 16, 29, 0.80);
+                            font-family: Inter;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 148%; /* 35.52px */
+                            &:hover{
+                                color: rgb(49, 49, 202);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
