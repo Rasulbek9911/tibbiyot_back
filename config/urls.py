@@ -50,7 +50,7 @@ urlpatterns += [
 urlpatterns += [
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/register/", UserRegisterView.as_view()),
-    path("resurs/", include('resurs_app.urls')),
+    path("resurs/", include("resurs_app.urls")),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

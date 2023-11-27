@@ -3,21 +3,31 @@ from rest_framework.serializers import ModelSerializer
 
 
 class FanSerializer(ModelSerializer):
-
     class Meta:
         model = Fan
-        fields = ('id', 'name', 'yunalish', 'rasm',)
-
+        fields = (
+            "id",
+            "name",
+            "yunalish",
+            "rasm",
+        )
+class FanSerializerForYunalish(ModelSerializer):
+    class Meta:
+        model = Fan
+        fields = (
+            "id",
+            "name",
+        )
 
 class YunalishSerializer(ModelSerializer):
-    fans = FanSerializer(many = True)
+    fans = FanSerializerForYunalish(many=True)
 
     class Meta:
         model = Yunalish
-        fields = ('id', 'name', 'fans')
+        fields = ("id", "name", "fans")
 
 
 class MavzuSerializer(ModelSerializer):
     class Meta:
         model = Mavzu
-        fields = ('id', 'name')
+        fields = "__all__"
