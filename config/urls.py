@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from users_app.views import UserRegisterView
 
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -48,6 +49,8 @@ urlpatterns += [
 
 urlpatterns += [
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/register/", UserRegisterView.as_view()),
+    path("resurs/", include('resurs_app.urls')),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
