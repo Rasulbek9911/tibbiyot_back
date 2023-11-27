@@ -25,6 +25,7 @@ function Header() {
 
   // hamkorlar idea
   const url = "http://tibbiy-talim-resurslari.uz/kategoriya_hamkor";
+  
   const { data: hamkors } = useGetFetch(url);
 
   // login

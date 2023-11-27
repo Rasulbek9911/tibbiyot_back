@@ -2,7 +2,7 @@ import React from "react";
 // scss
 import "./xalqaroHamkorlik.scss";
 // components
-import SidebarTwo from "../../components/sidebar/SidebarTwo";
+import SidebarMarkazHaqida from "../../components/sidebar/SidebarMarkazHaqida";
 import OqXalat from "../umumiyMalumot/components/OqXalat";
 import SmallContact from "../umumiyMalumot/components/SmallContact";
 import { useGetFetch } from "../../hooks/useGetFetch";
@@ -40,7 +40,7 @@ function XalqaroHamkorlik() {
         </table>
       </div>
       <div className="layout">
-        <SidebarTwo />
+        <SidebarMarkazHaqida />
         <OqXalat />
         <SmallContact />
       </div>
