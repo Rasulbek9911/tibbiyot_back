@@ -27,7 +27,7 @@ function Hujjatlar() {
   function handlePagination(e, p) {
     setPage(p);
   }
-  const url = `http://tibbiy-talim-resurslari.uz/meyoriy_hujjat?page=${page}`;
+  const url = `http://95.130.227.96:90/meyoriy_hujjat?page=${page}`;
   const { data, isPending, error } = useGetFetch(url);
 
   if (!data) {
