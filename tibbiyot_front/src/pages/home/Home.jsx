@@ -10,10 +10,10 @@ import VideoDarslik from "./VideoDarslik";
 function Home() {
   return (
     <div className="home">
-      <OquvResurslar />
-      <KasbMaqsadVazifa />
+      {/* <OquvResurslar /> */}
+      {/* <KasbMaqsadVazifa /> */}
       <KursAmalgaOshish />
-      <VideoDarslik />
+      {/* <VideoDarslik /> */}
     </div>
   );
 }
