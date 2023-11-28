@@ -15,6 +15,7 @@ import gmail from "../../assets/icons/gmail.svg";
 
 // sass
 import "./header.scss";
+import { baseUrl } from "../../services/http";
 
 function Header() {
   // language idea
@@ -24,8 +25,8 @@ function Header() {
   }
 
   // hamkorlar idea
-  const url = "http://tibbiy-talim-resurslari.uz/kategoriya_hamkor";
-  
+  const url = `${baseUrl}/kategoriya_hamkor`;
+
   const { data: hamkors } = useGetFetch(url);
 
   // login

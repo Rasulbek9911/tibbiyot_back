@@ -1,1 +1,1 @@
-export const http = "http://tibbiy-talim-resurslari.uz";
+export const baseUrl = "http://95.130.227.96:90";

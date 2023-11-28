@@ -8,9 +8,10 @@ import SmallContact from "../umumiyMalumot/components/SmallContact";
 // import person from "../../assets/images/person.png";
 import { useGetFetch } from "../../hooks/useGetFetch";
 import SidebarMarkazTuzilmasi from "../../components/sidebar/SidebarMarkazTuzilmasi";
+import { baseUrl } from "../../services/http";
 
 function Rahbariyat() {
-  const url = `http://tibbiy-talim-resurslari.uz/rahbariyat`;
+  const url = `${baseUrl}/rahbariyat`;
   const { data, isPending, error } = useGetFetch(url);
   if (!data) {
     return <p></p>;

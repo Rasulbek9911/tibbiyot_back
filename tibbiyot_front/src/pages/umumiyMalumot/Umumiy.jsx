@@ -3,9 +3,10 @@ import OqXalat from "./components/OqXalat";
 import SmallContact from "./components/SmallContact";
 import { useGetFetch } from "../../hooks/useGetFetch";
 import SidebarMarkazHaqida from "../../components/sidebar/SidebarMarkazHaqida";
+import { baseUrl } from "../../services/http";
 
 function Umumiy() {
-  const url = "http://tibbiy-talim-resurslari.uz/common_information";
+  const url = `${baseUrl}/common_information`;
   const { data, isPending, error } = useGetFetch(url);
   if (data == null) {
     return <p>null</p>;

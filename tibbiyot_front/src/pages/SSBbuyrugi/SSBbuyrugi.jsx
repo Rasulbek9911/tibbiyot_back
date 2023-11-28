@@ -9,6 +9,7 @@ import { Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
 import Loader from "../../components/loader/Loader";
 import SidebarMarkazHaqida from "../../components/sidebar/SidebarMarkazHaqida";
+import { baseUrl } from "../../services/http";
 
 function SSBbuyrugi() {
   const month = [
@@ -29,7 +30,7 @@ function SSBbuyrugi() {
   function handlePagination(e, p) {
     setPage(p);
   }
-  const url = `http://tibbiy-talim-resurslari.uz/ssb_buyruq?page=${page}`;
+  const url = `${baseUrl}/ssb_buyruq?page=${page}`;
   const { data, isPending, error } = useGetFetch(url);
   if (!data) {
     return <p></p>;
