@@ -7,6 +7,7 @@ import Loader from "../../components/loader/Loader";
 import { Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
 import SidebarMarkazHaqida from "../../components/sidebar/SidebarMarkazHaqida";
+import { baseUrl } from "../../services/http";
 
 function Hujjatlar() {
   const month = [
@@ -27,7 +28,7 @@ function Hujjatlar() {
   function handlePagination(e, p) {
     setPage(p);
   }
-  const url = `http://95.130.227.96:90/meyoriy_hujjat?page=${page}`;
+  const url = `${baseUrl}/meyoriy_hujjat?page=${page}`;
   const { data, isPending, error } = useGetFetch(url);
 
   if (!data) {

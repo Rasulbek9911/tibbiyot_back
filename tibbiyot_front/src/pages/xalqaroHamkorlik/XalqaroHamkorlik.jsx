@@ -7,10 +7,11 @@ import OqXalat from "../umumiyMalumot/components/OqXalat";
 import SmallContact from "../umumiyMalumot/components/SmallContact";
 import { useGetFetch } from "../../hooks/useGetFetch";
 import { useParams } from "react-router-dom";
+import { baseUrl } from "../../services/http";
 
 function XalqaroHamkorlik() {
   const { id } = useParams();
-  const url = `http://tibbiy-talim-resurslari.uz/hamkorlar/${id}`;
+  const url = `${baseUrl}/hamkorlar/${id}`;
   const { data } = useGetFetch(url);
 
   return (
