@@ -73,7 +73,7 @@ function Header() {
       <div className="bottomNavbar container">
         <Link className="logo">
           <div className="logoBlok">
-            <img src={i18n.language == "uz" ? logo : logoOrg} alt="Logo" />
+            <img src={logoOrg} alt="Logo" />
           </div>
           <p>
             Tibbiy ta’limda o‘quv <br /> resurslarini yaratish va <br />

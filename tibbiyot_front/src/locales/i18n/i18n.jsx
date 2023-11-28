@@ -11,7 +11,7 @@ i18n.use(initReactI18next).init({
   },
   resources: {
     uz: uz,
-    ru: ru,
+    // ru: ru,
   },
 });
 
