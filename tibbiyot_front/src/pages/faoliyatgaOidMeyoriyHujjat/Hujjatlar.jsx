@@ -45,7 +45,7 @@ function Hujjatlar() {
             return (
               <div className="cardss" key={hujjat.id}>
                 <h3>{hujjat.title}</h3>
-                <Link to={hujjat.file} className="download" download={true}>
+                <Link to={hujjat.file} className="download" target="blank">
                   <i className="fa fa-download" aria-hidden="true"></i>{" "}
                   <span>Yuklab olish</span>
                 </Link>

@@ -47,7 +47,7 @@ function SSBbuyrugi() {
               return (
                 <div key={ssb.id} className="cardss">
                   <h3>{ssb.title}</h3>
-                  <Link className="download">
+                  <Link to={ssb.file} className="download" target="blank">
                     <i className="fa fa-download" aria-hidden="true"></i>{" "}
                     <span>Yuklab olish</span>
                   </Link>
