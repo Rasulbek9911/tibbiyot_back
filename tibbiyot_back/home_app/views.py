@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .serializers import (
     CommonInformationSerializer,
     MeyoriyHujjatlarSerializer,
@@ -7,6 +7,9 @@ from .serializers import (
     TuzulmaSerializer,
     KategoriyaHamkorSerializer,
     HamkorlarSerializer,
+    YangilikSerializer,
+    AdabiyotSerializer,
+
 )
 from .models import (
     CommonInformation,
@@ -16,6 +19,8 @@ from .models import (
     Tuzilma,
     KategoriyaHamkor,
     Hamkorlar,
+    Yangilik,
+    Adabiyot,
 )
 from .pagination import DoubleShort
 from rest_framework.response import Response
@@ -62,3 +67,18 @@ class HamkorlarView(ListAPIView):
             translations__category=self.kwargs["pk"], translations__language_code=lang
         )
         return queryset
+
+
+class YangilikView(ListAPIView):
+    serializer_class = YangilikSerializer
+    queryset = Yangilik.objects.all().order_by('-translations__created_at')[:6]
+
+
+class YangilikDetailView(RetrieveAPIView):
+    serializer_class = YangilikSerializer
+    queryset = Yangilik.objects.all()
+
+
+class AdabiyotView(ListAPIView):
+    serializer_class = AdabiyotSerializer
+    queryset = Adabiyot.objects.all()

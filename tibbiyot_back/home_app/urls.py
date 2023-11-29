@@ -7,6 +7,9 @@ from .views import (
     TuzulmaView,
     KategoriyaHamkorView,
     HamkorlarView,
+    YangilikView,
+    YangilikDetailView,
+    AdabiyotView,
 )
 
 urlpatterns = [
@@ -17,4 +20,7 @@ urlpatterns = [
     path("tuzulma", TuzulmaView.as_view()),
     path("kategoriya_hamkor", KategoriyaHamkorView.as_view()),
     path("hamkorlar/<int:pk>/", HamkorlarView.as_view()),
+    path("yangilik", YangilikView.as_view()),
+    path("yangilik/<int:pk>/", YangilikDetailView.as_view()),
+    path("adabiyot", AdabiyotView.as_view()),
 ]

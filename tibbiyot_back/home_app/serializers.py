@@ -7,6 +7,8 @@ from .models import (
     Tuzilma,
     KategoriyaHamkor,
     Hamkorlar,
+    Yangilik,
+    Adabiyot,
 )
 from parler_rest.serializers import TranslatableModelSerializer
 from parler_rest.fields import TranslatedFieldsField
@@ -95,4 +97,16 @@ class HamkorlarSerializer(BaseTranslatableSerializer):
 
     class Meta:
         model = Hamkorlar
+        fields = "__all__"
+
+
+class YangilikSerializer(BaseTranslatableSerializer):
+    class Meta:
+        model = Yangilik
+        fields = "__all__"
+
+
+class AdabiyotSerializer(BaseTranslatableSerializer):
+    class Meta:
+        model = Adabiyot
         fields = "__all__"

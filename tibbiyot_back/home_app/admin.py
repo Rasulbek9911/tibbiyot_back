@@ -6,6 +6,8 @@ from .models import (
     Rahbariyat,
     Hamkorlar,
     KategoriyaHamkor,
+    Yangilik,
+    Adabiyot,
 )
 from parler.admin import TranslatableAdmin
 
@@ -15,3 +17,5 @@ admin.site.register(SsbBuyruq, TranslatableAdmin)
 admin.site.register(Rahbariyat, TranslatableAdmin)
 admin.site.register(KategoriyaHamkor, TranslatableAdmin)
 admin.site.register(Hamkorlar, TranslatableAdmin)
+admin.site.register(Yangilik, TranslatableAdmin)
+admin.site.register(Adabiyot, TranslatableAdmin)
