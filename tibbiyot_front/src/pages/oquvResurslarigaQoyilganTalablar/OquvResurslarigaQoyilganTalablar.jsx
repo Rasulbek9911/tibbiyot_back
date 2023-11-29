@@ -18,7 +18,7 @@ function OquvResurslarigaQoyilganTalablar() {
     <div className="oquvResurslarigaQoyilganTalablar container">
       <div className="content">
         <div className="desc">
-          <h1 className="title">O'QUV RESURSLARIGA QO'YILADIGAN ADABIYOTLAR</h1>
+          <h1 className="title">O'QUV RESURSLARIGA QO'YILADIGAN TALABLAR</h1>
           <div className="pdf">
             <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
               <Viewer fileUrl={files} plugins={[newplugin]} />
