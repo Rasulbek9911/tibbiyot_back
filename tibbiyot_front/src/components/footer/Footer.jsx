@@ -4,7 +4,7 @@ import React from "react";
 import "./footer.scss";
 
 // images
-import logo from "../../assets/icons/logo.svg";
+import logo from "../../assets/icons/logoOrg.png";
 import mail from "../../assets/icons/mail.svg";
 import inn from "../../assets/icons/in.svg";
 import twitter from "../../assets/icons/twitter.svg";
