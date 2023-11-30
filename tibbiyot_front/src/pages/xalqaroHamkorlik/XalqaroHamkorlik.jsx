@@ -23,7 +23,7 @@ function XalqaroHamkorlik() {
             <td>N</td>
             <td>Tashkilot nomi</td>
             <td>Faoliyati</td>
-            <td>Logotype</td>
+            <td>Telefon</td>
           </tr>
           {data &&
             data.map((item, index) => {
@@ -32,9 +32,7 @@ function XalqaroHamkorlik() {
                   <td>{index + 1}</td>
                   <td>{item.name}</td>
                   <td dangerouslySetInnerHTML={{ __html: item.faoliyat }}></td>
-                  <td>
-                    <img src={item.rasm} />
-                  </td>
+                  <td dangerouslySetInnerHTML={{ __html: item.phone }}></td>
                 </tr>
               );
             })}
