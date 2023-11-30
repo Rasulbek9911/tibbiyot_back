@@ -4,10 +4,10 @@ from django.utils.translation import gettext_lazy as _
 from parler.models import TranslatableModel, TranslatedFields
 from django.utils import timezone
 
+
 class CommonInformation(TranslatableModel):
     translations = TranslatedFields(
-        title=models.CharField(
-            _("title"), max_length=256, null=True, blank=True),
+        title=models.CharField(_("title"), max_length=256, null=True, blank=True),
         description=RichTextUploadingField(_("description")),
     )
 
@@ -94,9 +94,10 @@ class Hamkorlar(TranslatableModel):
             KategoriyaHamkor, on_delete=models.CASCADE, default=None
         ),
         name=models.CharField(_("nomi"), max_length=100),
-        faoliyat=RichTextUploadingField(_("faoliyat"),null=True, blank=True),
-        phone=models.CharField(_("phone"), max_length=15,default=None,null=True,blank=True),
-        
+        faoliyat=RichTextUploadingField(_("faoliyat"), null=True, blank=True),
+        phone=models.CharField(
+            _("phone"), max_length=20, default=None, null=True, blank=True
+        ),
     )
 
     def __str__(self):
@@ -119,13 +120,13 @@ class Tuzilma(TranslatableModel):
 
 class Yangilik(TranslatableModel):
     translations = TranslatedFields(
-        title=models.CharField(_('title'), max_length=256),
-        image=models.ImageField(_('image'), upload_to='yangilik/images/'),
-        body=RichTextUploadingField(_('body')),
-        created_at = models.DateTimeField(default=timezone.now),
-        updated_at = models.DateTimeField(auto_now_add=True)
-
+        title=models.CharField(_("title"), max_length=256),
+        image=models.ImageField(_("image"), upload_to="yangilik/images/"),
+        body=RichTextUploadingField(_("body")),
+        created_at=models.DateTimeField(default=timezone.now),
+        updated_at=models.DateTimeField(auto_now_add=True),
     )
+
     def __str__(self):
         return self.title
 
@@ -136,14 +137,14 @@ class Yangilik(TranslatableModel):
 
 class Adabiyot(TranslatableModel):
     translations = TranslatedFields(
-        title=models.CharField(_('title'), max_length=256),
-        muallif = models.CharField(_('muallif'), max_length=256),
-        nashr_yil = models.DateTimeField(_('nashr_yil'))
+        title=models.CharField(_("title"), max_length=256),
+        muallif=models.CharField(_("muallif"), max_length=256),
+        nashr_yil=models.DateTimeField(_("nashr_yil")),
     )
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         verbose_name = _("Adabiyot")
         verbose_name_plural = _("Adabiyotlar")

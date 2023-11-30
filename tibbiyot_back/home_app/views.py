@@ -9,7 +9,6 @@ from .serializers import (
     HamkorlarSerializer,
     YangilikSerializer,
     AdabiyotSerializer,
-
 )
 from .models import (
     CommonInformation,
@@ -71,7 +70,7 @@ class HamkorlarView(ListAPIView):
 
 class YangilikView(ListAPIView):
     serializer_class = YangilikSerializer
-    queryset = Yangilik.objects.all().order_by('-translations__created_at')[:6]
+    queryset = Yangilik.objects.all().order_by("-translations__created_at")[:6]
 
 
 class YangilikDetailView(RetrieveAPIView):
