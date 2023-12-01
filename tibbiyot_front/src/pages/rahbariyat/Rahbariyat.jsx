@@ -13,6 +13,7 @@ import { baseUrl } from "../../services/http";
 function Rahbariyat() {
   const url = `${baseUrl}/rahbariyat`;
   const { data, isPending, error } = useGetFetch(url);
+  console.log(data);
   if (!data) {
     return <p></p>;
   }
@@ -38,7 +39,6 @@ function Rahbariyat() {
                     </h2>
                   </div>
                   <div className="descreption">
-                    <h3>ЎЗБЕКИСТОН РЕСПУБЛИКАСИ СОҒЛИҚНИ САҚЛАШ ВАЗИРИ</h3>
                     <div className="info">
                       <p className="child">
                         {/* <span>Ma’lumoti:</span> */}
@@ -46,46 +46,11 @@ function Rahbariyat() {
                           dangerouslySetInnerHTML={{ __html: person.umumiy }}
                         ></p>
                       </p>
-                      <p className="child">
+                      {/* <p className="child">
                         <strong>Tamomlagan (Bakalavr):</strong>
                         <p> 2012 yil TATU Urganch filiali</p>
-                      </p>
-                      <p className="child">
-                        <strong>Ma’lumoti bo’yicha mutaxassisligi:</strong>
-                        <p> Axborot servis (Servis) </p>
-                      </p>
-                      <p className="child">
-                        <strong> Tamomlagan (Magistratura):</strong>
-                        <p> 2021 yil TDTU</p>
-                      </p>
-                      <p className="child">
-                        <strong> Ma’lumoti bo’yicha mutaxassisligi:</strong>
-                        <p>
-                          Komyuter tizimlari va ularning dasturiy ta’minoti{" "}
-                        </p>
-                      </p>
-
-                      <p className="child">
-                        <strong> Telefon:</strong>
-                        <p>
-                          {" "}
-                          (998) 01-234-56-78; (998) 01-234-56-78; (998)
-                          01-234-56-78
-                        </p>
-                      </p>
-                      <p className="child">
-                        <strong>Elektron pochta:</strong>
-                        <p> qwerty@mail.ru; qwerty@gmail.com</p>
-                      </p>
+                      </p> */}
                     </div>
-                    <p className="qabul">
-                      <strong>Qabul kunlari:</strong>
-                      <p>
-                        <strong className="kun">Dushanba</strong> kunlari soat{" "}
-                        <strong className="kirish">16:00</strong> dan{" "}
-                        <strong className="chiqish">18:00</strong> gacha
-                      </p>
-                    </p>
                   </div>
                 </div>
               );
