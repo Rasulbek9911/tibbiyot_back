@@ -56,9 +56,9 @@ function Header() {
                 {t("home_page.top_navbar.news")}
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink>{t("home_page.top_navbar.contact")}</NavLink>
-            </li>
+            </li> */}
           </ul>
           <ul className="topRightNavbarMenu">
             <form>
@@ -84,7 +84,7 @@ function Header() {
           <ul className="callNavbar">
             <li>
               <img src={gmail} />
-              <p>tibbiy ta’lim@gmail.com</p>
+              <p> ttrm.2@mail.ru</p>
             </li>
             <li>
               <img src={phone} />

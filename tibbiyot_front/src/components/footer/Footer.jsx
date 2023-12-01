@@ -35,7 +35,7 @@ function Footer() {
             </Link>
             <p>
               Email <br />
-              <Link>contact@logistics.com</Link>
+              <Link> ttrm.2@mail.ru</Link>
             </p>
           </div>
           <div className="col">
@@ -52,7 +52,7 @@ function Footer() {
             <Link>{t("home_page.footer.elektron_resurslar")}</Link>
             <Link>{t("home_page.footer.video_darslar")}</Link>
           </div>
-          <div className="col">
+          {/* <div className="col">
             <form>
               <input
                 className="footerMail"
@@ -74,7 +74,7 @@ function Footer() {
                 <img src={facebook} />
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <hr />
