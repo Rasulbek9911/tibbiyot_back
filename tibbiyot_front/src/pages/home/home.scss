@@ -1,98 +1,6 @@
 .home {
   display: flex;
   flex-direction: column;
-  // .oquvResurslar {
-  //   width: 100%;
-  //   display: flex;
-  //   justify-content: space-between;
-  //   column-gap: 40px;
-  //   padding: 0;
-  //   margin-bottom: 90px;
-  //   .desc {
-  //     width: 40%;
-  //     span {
-  //       color: #1c1f35;
-  //       font-family: Rubik;
-  //       font-size: 14px;
-  //       font-style: normal;
-  //       font-weight: 400;
-  //       line-height: normal;
-  //       border-left: 3px solid orange;
-  //       padding-left: 3px;
-  //       margin-bottom: 15px;
-  //     }
-  //     h1 {
-  //       color: #1c1f35;
-  //       font-family: Rubik;
-  //       font-size: 35px;
-  //       font-style: normal;
-  //       font-weight: 600;
-  //       line-height: normal;
-  //       margin-bottom: 12px;
-  //     }
-  //     p {
-  //       color: #666c89;
-  //       font-family: Krub;
-  //       font-size: 16px;
-  //       font-style: normal;
-  //       font-weight: 500;
-  //       line-height: 151.523%; /* 24.244px */
-  //       margin-bottom: 30px;
-  //     }
-  //     .kurslar {
-  //       display: flex;
-  //       flex-direction: column;
-  //       row-gap: 20px;
-  //       a {
-  //         text-decoration: none;
-  //         display: flex;
-  //         column-gap: 15px;
-  //         align-items: center;
-  //         p {
-  //           margin: 0;
-  //           color: #1c1f35;
-  //           font-family: Rubik;
-  //           font-size: 20px;
-  //           font-style: normal;
-  //           font-weight: 400;
-  //           line-height: normal;
-  //         }
-  //       }
-  //     }
-  //   }
-  //   .OquvImg {
-  //     width: 30%;
-  //     img {
-  //       width: 100%;
-  //       object-fit: cover;
-  //     }
-  //   }
-  //   .sidebarBlok {
-  //     width: 30%;
-  //   }
-  // }
-  // .kasbMaqsadVazifa {
-  //   margin-bottom: 50px;
-  //   .title {
-  //     color: #1c1f35;
-  //     font-family: Rubik;
-  //     font-size: 35px;
-  //     font-style: normal;
-  //     font-weight: 600;
-  //     line-height: normal;
-  //     margin-bottom: 12px;
-  //   }
-  //   .desc {
-  //     color: #666c89;
-  //     text-align: justify;
-  //     font-family: Krub;
-  //     font-size: 16px;
-  //     font-style: normal;
-  //     font-weight: 500;
-  //     line-height: 151.523%; /* 24.244px */
-  //     margin-bottom: 30px;
-  //   }
-  // }
   .boshSahifa{
     width: 100%;
     display: flex;
@@ -102,6 +10,9 @@
     padding: 0;
     .news{
       width: 70%;
+      h2{
+        margin-bottom: 30px;
+      }
       .rows{
         display: flex;
         align-items: flex-start;
