@@ -21,6 +21,9 @@ import MaruzaMatn from "./pages/fanlarBoyichaOquvResurslariAll/fanMundarija/maru
 import Login from "./pages/authModal/login/Login";
 import RoyxatdanOtish from "./pages/authModal/royxatdanOtish/RoyxatdanOtish";
 import ParolniTiklash from "./pages/authModal/parolniTiklash/ParolniTiklash";
+import Yangiliklar from "./pages/yangiliklar/Yangiliklar";
+import YangilikLayout from "./pages/yangiliklar/YangilikLayout";
+import BatafsilYangilik from "./pages/yangiliklar/BatafsilYangilik";
 
 function App() {
   const routes = createBrowserRouter([
@@ -71,6 +74,24 @@ function App() {
         {
           path: "Yangi-adabiyotlar",
           element: <YangiAdabiyotlar />,
+        },
+        {
+          path: "Yangiliklar",
+          element: <YangilikLayout />,
+          children: [
+            {
+              index: true,
+              element: <Yangiliklar />,
+            },
+            {
+              path: ":id",
+              element: <BatafsilYangilik />,
+            },
+          ],
+        },
+        {
+          path: "Yangiliklar",
+          element: <Yangiliklar />,
         },
         {
           path: "Fanlar-boyicha-oquv-resurslari",

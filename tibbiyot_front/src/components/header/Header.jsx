@@ -52,7 +52,7 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/OTM-yangiliklari">
+              <NavLink to="/Yangiliklar">
                 {t("home_page.top_navbar.news")}
               </NavLink>
             </li>
