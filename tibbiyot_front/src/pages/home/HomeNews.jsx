@@ -13,7 +13,11 @@ function News() {
         {yangiliklar &&
           yangiliklar.map((yangilik) => {
             return (
-              <Link key={yangilik.id} className="cardss">
+              <Link
+                to={`/Yangiliklar/${yangilik.id}`}
+                key={yangilik.id}
+                className="cardss"
+              >
                 <div className="imgBlok">
                   <img src={yangilik.image} alt="" />
                 </div>

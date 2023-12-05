@@ -7,12 +7,17 @@ function SidebarFaoliyat() {
   return (
     <div className="sidebar">
       <ul>
-        <li style={{ backgroundColor: "#ccc" }}>
-          <NavLink to="/Yangi-adabiyotlar">
+        <p className="head">
+          <NavLink>
             {" "}
-            <img src={menu} /> <p>FAOLIYAT</p>
+            <i
+              style={{ color: "white", fontSize: "21px", marginRight: "3px" }}
+              className="fa fa-bars"
+              aria-hidden="true"
+            ></i>
+            <p style={{ color: "white" }}>FAOLIYAT</p>
           </NavLink>
-        </li>
+        </p>
         <li>
           <NavLink to="/Yangi-adabiyotlar">
             {" "}
