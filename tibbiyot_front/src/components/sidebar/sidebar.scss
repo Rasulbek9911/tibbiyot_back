@@ -6,8 +6,35 @@
             flex-direction: column;
             margin: 0;
             padding: 0;
+            .head{
+                margin: 0;
+                padding: 0;
+                background-color: #898989;
+                a{
+                    padding: 0px 20px;  
+                    display: flex;
+                    align-items: center;
+                    height: 40px;
+                    display: flex;
+                    column-gap: 12px;
+                    text-decoration: none;
+                    p{
+                        margin: 0;
+                        font-family: DM Sans;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 20px; /* 125% */ 
+                    }
+                }
+                &:hover{
+                background-color: #909090;
+
+                }
+            }
             li{
                 border-bottom: 0.5px solid #898989;
+                padding: 2px 0px;
                 a{
                     padding: 0px 20px;  
                     display: flex;
@@ -28,6 +55,9 @@
                     &:hover{
                         background-color: #F3F3F3;
                     }
+                }
+                .active{
+                    background-color: #F3F3F3;
                 }
             }
         }

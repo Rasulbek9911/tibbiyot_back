@@ -4,18 +4,22 @@ import "./sidebar.scss";
 
 import { NavLink } from "react-router-dom";
 import menuChild from "../../assets/icons/menuChild.svg";
-import menu from "../../assets/icons/menu.svg";
 
 function SidebarMarkazHaqida() {
   return (
     <div className="sidebar">
       <ul>
-        <li style={{ backgroundColor: "#ccc" }}>
-          <NavLink to="/Umumiy-malumot">
+        <p className="head">
+          <NavLink>
             {" "}
-            <img src={menu} /> <p>MARKAZ HAQIDA</p>
+            <i
+              style={{ color: "white", fontSize: "21px", marginRight: "3px" }}
+              className="fa fa-bars"
+              aria-hidden="true"
+            ></i>
+            <p style={{ color: "white" }}>MARKAZ HAQIDA</p>
           </NavLink>
-        </li>
+        </p>
         <li>
           <NavLink to="/Umumiy-malumot">
             {" "}

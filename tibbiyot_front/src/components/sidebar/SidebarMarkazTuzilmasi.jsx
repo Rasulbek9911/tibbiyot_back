@@ -7,12 +7,17 @@ function SidebarMarkazTuzilmasi() {
   return (
     <div className="sidebar">
       <ul>
-        <li style={{ backgroundColor: "#ccc" }}>
-          <NavLink to="/Tarkibiy-tuzilma">
+      <p className="head">
+          <NavLink>
             {" "}
-            <img src={menu} /> <p>MARKAZ TUZILMASI</p>
+            <i
+              style={{ color: "white", fontSize: "21px", marginRight: "3px" }}
+              className="fa fa-bars"
+              aria-hidden="true"
+            ></i>
+            <p style={{ color: "white" }}>MARKAZ TUZILMASI</p>
           </NavLink>
-        </li>
+        </p>
         <li>
           <NavLink to="/Rahbariyat-va-hodimlar">
             {" "}
