@@ -74,7 +74,7 @@ function Hujjatlar() {
             );
           })}
         </div>
-        <hr />  
+        <hr />
         <Pagination
           count={data.total_pages}
           color="primary"
