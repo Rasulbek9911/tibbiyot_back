@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // scss
 import "./yangiAdabiyotlar.scss";
 // images
@@ -10,31 +10,26 @@ import SmallContact from "../umumiyMalumot/components/SmallContact";
 import SidebarFaoliyat from "../../components/sidebar/SidebarFaoliyat";
 import { useGetFetch } from "../../hooks/useGetFetch";
 import { baseUrl } from "../../services/http";
+import { Pagination } from "@mui/material";
 
 function YangiAdabiyotlar() {
-  const { data, isPending, error } = useGetFetch(`${baseUrl}/adabiyot`);
-  const month = [
-    "Yanvar",
-    "Fevral",
-    "Mart",
-    "Aprel",
-    "May",
-    "Iyun",
-    "Iyul",
-    "Avgust",
-    "Sentabr",
-    "Oktabr",
-    "Noyabr",
-    "Dekabr",
-  ];
+  const [page, setPage] = useState(1);
+  function handlePagination(e, p) {
+    setPage(p);
+  }
+  const { data } = useGetFetch(`${baseUrl}/adabiyot?page=${page}`);
+  if (!data) {
+    return <p></p>;
+  }
+
   return (
     <div className="yangiAdabiyotlar container">
       <div className="content">
         <div className="desc">
           <h1 className="title">OTMlar faoliyatga oid yangi adabiyotlar</h1>
           <div className="row">
-            {data &&
-              data.map((book) => {
+            {data.results &&
+              data.results.map((book) => {
                 return (
                   <div key={book.id} className="cardss">
                     <h3 className="name">
@@ -54,6 +49,11 @@ function YangiAdabiyotlar() {
               })}
           </div>
           <hr style={{ marginBottom: "40px" }} />
+          <Pagination
+            count={data.total_pages}
+            color="primary"
+            onChange={handlePagination}
+          ></Pagination>
         </div>
         <div className="layout">
           <SidebarFaoliyat />
