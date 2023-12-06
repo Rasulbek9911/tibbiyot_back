@@ -21,7 +21,7 @@ from .models import (
     Yangilik,
     Adabiyot,
 )
-from .pagination import DoubleShort
+from .pagination import DoubleShort,ExtraShort,Middle
 from rest_framework.response import Response
 
 
@@ -68,10 +68,15 @@ class HamkorlarView(ListAPIView):
         return queryset
 
 
-class YangilikView(ListAPIView):
+class YangilikHomeView(ListAPIView):
     serializer_class = YangilikSerializer
     queryset = Yangilik.objects.all().order_by("-translations__created_at")[:6]
 
+
+class YangilikView(ListAPIView):
+    serializer_class = YangilikSerializer
+    queryset = Yangilik.objects.all()
+    pagination_class = Middle
 
 class YangilikDetailView(RetrieveAPIView):
     serializer_class = YangilikSerializer
@@ -81,3 +86,4 @@ class YangilikDetailView(RetrieveAPIView):
 class AdabiyotView(ListAPIView):
     serializer_class = AdabiyotSerializer
     queryset = Adabiyot.objects.all()
+    pagination_class = ExtraShort
