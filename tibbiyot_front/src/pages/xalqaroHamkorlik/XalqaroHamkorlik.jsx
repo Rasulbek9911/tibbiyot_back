@@ -22,7 +22,7 @@ function XalqaroHamkorlik() {
           <tr className="thead">
             <td>N</td>
             <td>Tashkilot nomi</td>
-            <td>Faoliyati</td>
+            <td>Elektron manzil</td>
             <td>Telefon</td>
           </tr>
           {data &&

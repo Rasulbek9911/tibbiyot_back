@@ -32,7 +32,7 @@ function Hujjatlar() {
   const { data, isPending, error } = useGetFetch(url);
 
   if (!data) {
-    return <p>kelyapti</p>;
+    return <p></p>;
   }
   return (
     <div className="hujjat">

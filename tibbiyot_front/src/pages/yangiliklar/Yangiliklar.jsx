@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetFetch } from "../../hooks/useGetFetch";
 import { baseUrl } from "../../services/http";
 // scss
 import "./yangiliklar.scss";
+import { Pagination } from "@mui/material";
 
 function Yangiliklar() {
-  const { data: yangiliklar } = useGetFetch(`${baseUrl}/yangilik`);
+  const [page, setPage] = useState(1);
+  function handlePagination(e, p) {
+    setPage(p);
+  }
+
+  const { data: yangiliklar } = useGetFetch(
+    `${baseUrl}/yangilik_all?page=${page}`
+  );
+  console.log(yangiliklar);
+  if (!yangiliklar) {
+    return <p></p>;
+  }
   return (
     <div className="news">
       <h2>Yangiliklar</h2>
       <div className="rows">
         {yangiliklar &&
-          yangiliklar.map((yangilik) => {
+          yangiliklar.results.map((yangilik) => {
             return (
               <Link
                 to={`/Yangiliklar/${yangilik.id}`}
@@ -59,6 +71,12 @@ function Yangiliklar() {
             );
           })}
       </div>
+      <hr />
+      <Pagination
+        count={yangiliklar.total_pages}
+        color="primary"
+        onChange={handlePagination}
+      ></Pagination>
     </div>
   );
 }
