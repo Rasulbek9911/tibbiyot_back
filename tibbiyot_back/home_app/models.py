@@ -153,8 +153,7 @@ class Adabiyot(TranslatableModel):
 class Bolim(TranslatableModel):
     translations = TranslatedFields(
         title=models.CharField(_("title"), max_length=256),
-        description=RichTextUploadingField(_('description'))
-        
+        description=RichTextUploadingField(_("description")),
     )
 
     def __str__(self):
