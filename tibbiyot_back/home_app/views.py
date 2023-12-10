@@ -9,6 +9,7 @@ from .serializers import (
     HamkorlarSerializer,
     YangilikSerializer,
     AdabiyotSerializer,
+    BolimSerializer,
 )
 from .models import (
     CommonInformation,
@@ -20,6 +21,8 @@ from .models import (
     Hamkorlar,
     Yangilik,
     Adabiyot,
+    Bolim,
+
 )
 from .pagination import DoubleShort,ExtraShort,Middle
 from rest_framework.response import Response
@@ -87,3 +90,7 @@ class AdabiyotView(ListAPIView):
     serializer_class = AdabiyotSerializer
     queryset = Adabiyot.objects.all()
     pagination_class = ExtraShort
+
+class BolimView(ListAPIView):
+    serializer_class = BolimSerializer
+    queryset = Bolim.objects.all()

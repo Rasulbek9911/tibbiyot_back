@@ -148,3 +148,18 @@ class Adabiyot(TranslatableModel):
     class Meta:
         verbose_name = _("Adabiyot")
         verbose_name_plural = _("Adabiyotlar")
+
+
+class Bolim(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(_("title"), max_length=256),
+        description=RichTextUploadingField(_('description'))
+        
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _("Bo'lim")
+        verbose_name_plural = _("Bo'limlar")

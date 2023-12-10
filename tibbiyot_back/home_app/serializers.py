@@ -9,6 +9,7 @@ from .models import (
     Hamkorlar,
     Yangilik,
     Adabiyot,
+    Bolim,
 )
 from parler_rest.serializers import TranslatableModelSerializer
 from parler_rest.fields import TranslatedFieldsField
@@ -109,4 +110,10 @@ class YangilikSerializer(BaseTranslatableSerializer):
 class AdabiyotSerializer(BaseTranslatableSerializer):
     class Meta:
         model = Adabiyot
+        fields = "__all__"
+
+
+class BolimSerializer(BaseTranslatableSerializer):
+    class Meta:
+        model = Bolim
         fields = "__all__"

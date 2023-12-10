@@ -11,6 +11,7 @@ from .views import (
     YangilikDetailView,
     AdabiyotView,
     YangilikView,
+    BolimView,
 )
 
 urlpatterns = [
@@ -25,4 +26,5 @@ urlpatterns = [
     path("yangilik_all", YangilikView.as_view()),
     path("yangilik/<int:pk>/", YangilikDetailView.as_view()),
     path("adabiyot", AdabiyotView.as_view()),
+    path("bolim", BolimView.as_view()),
 ]
