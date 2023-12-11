@@ -13,7 +13,7 @@ import { baseUrl } from "../../services/http";
 function Rahbariyat() {
   const url = `${baseUrl}/rahbariyat`;
   const { data, isPending, error } = useGetFetch(url);
-  console.log(data);
+
   if (!data) {
     return <p></p>;
   }
