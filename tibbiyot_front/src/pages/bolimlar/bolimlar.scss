@@ -6,149 +6,46 @@
       margin-bottom: 150px;
       .desc {
         width: 70%;
-        .row{
+        h1 {
+          margin-bottom: 30px;
+          font-weight: 600;
+        }
+        .row {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          row-gap: 40px;
+          margin: 0px 0px 30px 0px;
+  
+          .cardss {
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            row-gap: 30px;
-            margin: 0px 0px 30px 0px;
-            h1 {
-                color: var(--Teal-100, #081A1C);
-                font-family: Inter;
-                font-size: 48px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 110%; /* 52.8px */
-                letter-spacing: 0.2px;
-                margin-bottom: 0px;
+            padding: 20px;
+            border-radius: 12px;
+            background: var(--Cool-Gray-10, #eaeef5);
+            box-shadow: 0px 2px 2px black;
+            .title {
+              color: rgb(4, 157, 157);
+              font-family: Roboto;
+              text-align: center;
+              font-size: 25px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 110%; /* 52.8px */
+              letter-spacing: 0.2px;
+              margin: 0px 0px 30px 0px;
+              padding: 0;
             }
             p {
-                margin: 0px 0px 70px 0px;
-                color: var(--Cool-Gray-100, #121619);
-                font-family: Inter;
-                font-size: 20px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 140%; /* 28px */
+              margin: 0px 0px 0px 0px;
+              padding: 0;
+              color: var(--Cool-Gray-100, #121619);
+              font-family: Inter;
+              font-size: 18px;
+              font-style: normal;
+              text-align: justify;
+              line-height: 140%; /* 28px */
             }
-            .cardss{
-                width: 100%;
-                padding: 20px;
-                display: flex;
-                column-gap: 40px;
-                border-radius: 12px;
-                background: var(--Cool-Gray-10, #F2F4F8);
-                .imageBlok{
-                    width: 25%;
-                    display: flex;
-                    flex-direction: column;
-                    row-gap: 15px;
-                    .image{
-                        width: 100%;
-                        img{
-                            width: 100%;
-                            object-fit: cover;
-                        }
-                    }
-                    h2{
-                        color: var(--Cool-Gray-100, #121619);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 700;
-                        line-height: 140%; /* 28px */
-                    }
-                }
-                .descreption{
-                    width: 75%;
-                    display: flex;
-                    flex-direction: column;
-                    row-gap: 20px;
-                    h3{
-                        color: #045097;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 700;
-                        line-height: 140%; /* 28px */
-                    }
-                    .info{
-                        display: flex;
-                        flex-direction: column;
-                        row-gap: 5px;
-                        .child{
-                            margin: 0;
-                            display: flex;
-                            column-gap: 5px;
-                            span{
-                                color: black;
-                                text-align: justify;
-                                font-family: Rubik;
-                                font-size: 16px;
-                                font-style: normal;
-                                font-weight: 600;
-                                line-height: 130.5%; /* 20.88px */
-                            }
-                            p{
-                                margin: 0;
-                                color: #666C89;
-                                text-align: justify;
-                                font-family: Rubik;
-                                font-size: 16px;
-                                font-style: normal;
-                                font-weight: 400;
-                                line-height: 130.5%; /* 20.88px */
-                            }
-                        }
-                    }
-                    .qabul{
-                        display: flex;
-                        column-gap: 10px;
-                        margin: 0;
-                        span{
-                            color: #045097;
-                            font-family: Inter;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 700;
-                            line-height: 140%; /* 28px */
-                        }
-                        p{
-                            margin:0;
-                            color: #666C89;
-                            font-family: Inter;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: 140%; /* 28px */
-                            span{
-                                color: #666C89;
-                                font-family: Inter;
-                                font-size: 14px;
-                                font-style: normal;
-                                font-weight: 400;
-                                line-height: 140%; /* 28px */
-                            }
-                        }
-                    }
-                    .download {
-                        width: 170px;
-                        border-radius: 8px;
-                        border: 1px solid #06989D;
-                        color: #06989D;
-                        padding: 8px 16px;
-                        display: flex;
-                        align-items: center;
-                        column-gap: 10px;
-                        background: none;
-                        &:hover {
-                          background-color: #06989D;
-                          color: white;
-                        }
-                      }
-                }
-            }
+          }
         }
       }
       .layout {
