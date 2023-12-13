@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function FanAccardion() {
+function FanAccardion({ mavzu }) {
   const [showInfo, setShowInfo] = useState(false);
   return (
     <section className="fan">
       <div className="header">
-        <h4 className="title">
-          Muskullar. Ravish haqida tushuncha. Ravishlarning ma’noga ko‘ra
-          turlari, yasalishi
-        </h4>
+        <h4 className="title">{mavzu.name}</h4>
         <button
           className={`btn ${showInfo && "active"}`}
           onClick={() => setShowInfo(!showInfo)}
@@ -25,11 +22,11 @@ function FanAccardion() {
         <ul className="list">
           <li className="item">
             <Link to="/Fanlar-boyicha-oquv-resurslari/fan/maruza-matn">
-              <p>Mavzular to‘plami</p>
+              <p>{mavzu.nazariy_malumot}</p>
             </Link>
           </li>
           <li className="item">
-            <Link to="">
+            <Link to={mavzu.media}>
               <p>Media materiallar</p>
             </Link>
           </li>
@@ -40,7 +37,7 @@ function FanAccardion() {
           </li>
           <li className="item">
             <Link to="">
-              <p>Taqdimot materiallari</p>
+              <p>{mavzu.taqdimot}</p>
             </Link>
           </li>
           <li className="item">

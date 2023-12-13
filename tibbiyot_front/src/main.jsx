@@ -7,11 +7,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./locales/i18n/i18n.jsx";
 import { LoginProvider } from "./context/AuthLogin.jsx";
+import { OquvResurslarProvider } from "./context/OquvResurslar.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <LoginProvider>
-    <App />
+    <OquvResurslarProvider>
+      <App />
+    </OquvResurslarProvider>
   </LoginProvider>
   // </React.StrictMode>
 );
