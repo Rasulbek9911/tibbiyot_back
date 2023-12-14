@@ -24,7 +24,7 @@ function Accardion({id, name, fans }) {
           {fans.map((fan) => {
             return (
               <li className="item" key={fan.id}>
-                <Link to="/Fanlar-boyicha-oquv-resurslari/fan">
+                <Link to={`/Fanlar-boyicha-oquv-resurslari/${fan.id}`}>
                   <img src={book} />
                   <p>{fan.name}</p>
                 </Link>

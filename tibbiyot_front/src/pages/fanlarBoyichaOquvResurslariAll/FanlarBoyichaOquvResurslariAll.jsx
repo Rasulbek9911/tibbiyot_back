@@ -39,7 +39,7 @@ function FanlarBoyichaOquvResurslariAll() {
           })}
         </div>
         <div className="cardsBlok">
-          {fanlar.map((fan) => {
+          {fanlar.results.map((fan) => {
             return (
               <Link
                 to="/Fanlar-boyicha-oquv-resurslari/fan"

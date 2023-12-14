@@ -4,9 +4,9 @@ import { createContext } from "react";
 export const FanContext = createContext();
 
 export const OquvResurslarProvider = ({ children }) => {
-  const [Fan, setFan] = useState(null);
+  const [detail, setDetail] = useState("kemadi");
   return (
-    <FanContext.Provider value={{ Fan, setFan }}>
+    <FanContext.Provider value={{ detail, setDetail }}>
       {children}
     </FanContext.Provider>
   );
