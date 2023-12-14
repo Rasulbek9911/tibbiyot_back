@@ -102,7 +102,7 @@ function App() {
               element: <FanlarBoyichaOquvResurslariAll />,
             },
             {
-              path: "fan",
+              path: ":id",
               element: <LayoutFanMundarija />,
               children: [
                 {
@@ -110,7 +110,7 @@ function App() {
                   element: <FanMundarija />,
                 },
                 {
-                  path: "maruza-matn",
+                  path: "detail",
                   element: <MaruzaMatn />,
                 },
               ],

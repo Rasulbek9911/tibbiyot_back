@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { FanContext } from "../../../context/OquvResurslar";
 
-function FanAccardion() {
+function FanAccardion({ mavzu, id }) {
+  const { setDetail } = useContext(FanContext);
   const [showInfo, setShowInfo] = useState(false);
   return (
     <section className="fan">
       <div className="header">
-        <h4 className="title">
-          Muskullar. Ravish haqida tushuncha. Ravishlarning ma’noga ko‘ra
-          turlari, yasalishi
-        </h4>
+        <h4 className="title">{mavzu.name}</h4>
         <button
           className={`btn ${showInfo && "active"}`}
           onClick={() => setShowInfo(!showInfo)}
@@ -24,12 +23,15 @@ function FanAccardion() {
       {showInfo && (
         <ul className="list">
           <li className="item">
-            <Link to="/Fanlar-boyicha-oquv-resurslari/fan/maruza-matn">
-              <p>Mavzular to‘plami</p>
+            <Link
+              to={`/Fanlar-boyicha-oquv-resurslari/${id}/detail`}
+              onClick={() => setDetail(mavzu.nazariy_malumot)}
+            >
+              <p>Maruza matni</p>
             </Link>
           </li>
           <li className="item">
-            <Link to="">
+            <Link to={mavzu.media}>
               <p>Media materiallar</p>
             </Link>
           </li>
@@ -39,7 +41,10 @@ function FanAccardion() {
             </Link>
           </li>
           <li className="item">
-            <Link to="">
+            <Link
+              to={`/Fanlar-boyicha-oquv-resurslari/${id}/detail`}
+              onClick={() => setDetail(mavzu.taqdimot)}
+            >
               <p>Taqdimot materiallari</p>
             </Link>
           </li>
@@ -49,7 +54,10 @@ function FanAccardion() {
             </Link>
           </li>
           <li className="item">
-            <Link to="">
+            <Link
+              to={`/Fanlar-boyicha-oquv-resurslari/${id}/detail`}
+              onClick={() => setDetail(mavzu.topshiriq)}
+            >
               <p>Nazariy - amaliy topshiriqlar</p>
             </Link>
           </li>

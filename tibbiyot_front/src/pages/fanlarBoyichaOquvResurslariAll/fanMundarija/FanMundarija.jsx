@@ -1,35 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
 // scss
 import "./fanMundarija.scss";
 // images
 import photo from "../../../assets/images/Photo.png";
 import FanAccardion from "./FanAccardion";
+import { useGetFetch } from "../../../hooks/useGetFetch";
+import { baseUrl } from "../../../services/http";
+import { useParams } from "react-router-dom";
 
 function FanMundarija() {
-  const arr = [
-    { id: 1, title: "title1" },
-    { id: 2, title: "title2" },
-    { id: 3, title: "title3" },
-    { id: 4, title: "title4" },
-    { id: 5, title: "title5" },
-    { id: 6, title: "title6" },
-    { id: 7, title: "title7" },
-  ];
+  const { id } = useParams();
+  console.log(id);
+
+  const {
+    data: Fan,
+    error,
+    isPending,
+  } = useGetFetch(`${baseUrl}/resurs/fan/${id}`);
+  console.log(Fan);
+  if (!Fan) {
+    return <p></p>;
+  }
   return (
     <div className="fanlarMundarija container">
       <h1>FANLAR BO’YICHA O’QUV RESURSLAR</h1>
       <div className="header">
         <div className="image">
-          <img src={photo} />
+          <img src={Fan.rasm} />
         </div>
         <div className="desc">
-          <h1 className="title">Farmakologiya va repseptura asoslari</h1>
+          <h1 className="title">{Fan.name}</h1>
           <p>Kasb (mutaxassislik) kodi va nomi 40910204 – Hamshiralik ishi</p>
         </div>
       </div>
       <div className="main">
-        {arr.map((item) => {
-          return <FanAccardion key={item.id} />;
+        {Fan.mavzus.map((mavzu) => {
+          return <FanAccardion mavzu={mavzu} id={id} key={mavzu.id} />;
         })}
       </div>
     </div>
