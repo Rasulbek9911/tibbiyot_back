@@ -35,7 +35,7 @@ class Fan(models.Model):
 
 class Mavzu(models.Model):
     name = models.CharField(_("name"), max_length=256)
-    fan = models.ForeignKey(Fan, on_delete=models.CASCADE)
+    fan = models.ForeignKey(Fan, on_delete=models.CASCADE,related_name = 'mavzus' )
     nazariy_malumot = models.FileField(
         _("nazariy malumot"), upload_to="Fan/nazariy_malumot/"
     )
