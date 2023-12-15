@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 import book from "../../assets/icons/fa_book.svg";
 import { Link } from "react-router-dom";
 
-function Accardion({id, name, fans }) {
+function Accardion({ name, fans }) {
   const [showInfo, setShowInfo] = useState(false);
   return (
     <section className="question">

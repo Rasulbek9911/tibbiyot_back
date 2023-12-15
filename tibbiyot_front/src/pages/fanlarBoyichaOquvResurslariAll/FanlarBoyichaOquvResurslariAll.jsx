@@ -7,8 +7,14 @@ import "./fanlarBoyichaOquvResurslariAll.scss";
 import Accardion from "./Accardion";
 import { Link } from "react-router-dom";
 import { FanContext } from "../../context/OquvResurslar";
+import { Pagination } from "@mui/material";
 
 function FanlarBoyichaOquvResurslariAll() {
+  const [page, setPage] = useState(1);
+  function handlePagination(e, p) {
+    setPage(p);
+  }
+
   const {
     data: yunalishlar,
     error,
@@ -19,7 +25,7 @@ function FanlarBoyichaOquvResurslariAll() {
     data: fanlar,
     error: fanError,
     isPending: fanIsPending,
-  } = useGetFetch(`${baseUrl}/resurs/fan`);
+  } = useGetFetch(`${baseUrl}/resurs/fan?page=${page}`);
 
   const { Fan, setFan } = useContext(FanContext);
 
@@ -42,10 +48,9 @@ function FanlarBoyichaOquvResurslariAll() {
           {fanlar.results.map((fan) => {
             return (
               <Link
-                to="/Fanlar-boyicha-oquv-resurslari/fan"
+                to={`/Fanlar-boyicha-oquv-resurslari/${fan.id}`}
                 key={fan.id}
                 className="cardss"
-                onClick={() => setFan(fan)}
               >
                 <div className="imgBlok">
                   <img src={fan.rasm} />
@@ -57,6 +62,13 @@ function FanlarBoyichaOquvResurslariAll() {
               </Link>
             );
           })}
+          {/* <div className="ch"></div> */}
+          <hr className="hr" />
+          <Pagination
+            count={fanlar.total_pages}
+            color="primary"
+            onChange={handlePagination}
+          ></Pagination>
         </div>
       </div>
     </div>

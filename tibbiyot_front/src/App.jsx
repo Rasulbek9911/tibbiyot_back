@@ -109,10 +109,10 @@ function App() {
                   index: true,
                   element: <FanMundarija />,
                 },
-                {
-                  path: "detail",
-                  element: <MaruzaMatn />,
-                },
+                // {
+                //   path: "detail",
+                //   element: <MaruzaMatn />,
+                // },
               ],
             },
           ],
