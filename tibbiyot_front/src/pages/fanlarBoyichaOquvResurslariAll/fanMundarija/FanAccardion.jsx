@@ -1,9 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FanContext } from "../../../context/OquvResurslar";
 
-function FanAccardion({ mavzu, id }) {
-  const { setDetail } = useContext(FanContext);
+function FanAccardion({ mavzu }) {
   const [showInfo, setShowInfo] = useState(false);
   return (
     <section className="fan">
@@ -23,15 +21,12 @@ function FanAccardion({ mavzu, id }) {
       {showInfo && (
         <ul className="list">
           <li className="item">
-            <Link
-              to={`/Fanlar-boyicha-oquv-resurslari/${id}/detail`}
-              onClick={() => setDetail(mavzu.nazariy_malumot)}
-            >
+            <Link target="blank" to={mavzu.nazariy_malumot}>
               <p>Maruza matni</p>
             </Link>
           </li>
           <li className="item">
-            <Link to={mavzu.media}>
+            <Link to={mavzu.media} target="blank">
               <p>Media materiallar</p>
             </Link>
           </li>
@@ -41,10 +36,7 @@ function FanAccardion({ mavzu, id }) {
             </Link>
           </li>
           <li className="item">
-            <Link
-              to={`/Fanlar-boyicha-oquv-resurslari/${id}/detail`}
-              onClick={() => setDetail(mavzu.taqdimot)}
-            >
+            <Link to={mavzu.taqdimot} target="blank">
               <p>Taqdimot materiallari</p>
             </Link>
           </li>
@@ -54,10 +46,7 @@ function FanAccardion({ mavzu, id }) {
             </Link>
           </li>
           <li className="item">
-            <Link
-              to={`/Fanlar-boyicha-oquv-resurslari/${id}/detail`}
-              onClick={() => setDetail(mavzu.topshiriq)}
-            >
+            <Link to={mavzu.topshiriq} target="blank">
               <p>Nazariy - amaliy topshiriqlar</p>
             </Link>
           </li>

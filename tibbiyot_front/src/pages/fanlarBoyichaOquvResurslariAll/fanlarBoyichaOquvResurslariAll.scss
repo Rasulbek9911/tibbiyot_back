@@ -110,6 +110,10 @@
       flex-wrap: wrap;
       column-gap: 20px;
       align-items: flex-start;
+      .hr{
+        border-top: 1px solid black;
+        width: 100%;
+      }
       .cardss {
         text-decoration: none;
         border-radius: 20px;
