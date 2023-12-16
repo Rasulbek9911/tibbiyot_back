@@ -35,7 +35,7 @@ function FanlarBoyichaOquvResurslariAll() {
     isPending: fanIsPending,
   } = useGetFetch(
     `${baseUrl}/resurs/fan${
-      searchFan ? `?search=${searchFan}` : `?page=${page}`
+      searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
     }`
   );
 
