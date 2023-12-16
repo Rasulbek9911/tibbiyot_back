@@ -15,7 +15,6 @@ function Yangiliklar() {
   const { data: yangiliklar } = useGetFetch(
     `${baseUrl}/yangilik_all?page=${page}`
   );
-  console.log(yangiliklar);
   if (!yangiliklar) {
     return <p></p>;
   }
