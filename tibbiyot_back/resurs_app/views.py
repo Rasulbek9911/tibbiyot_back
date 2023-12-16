@@ -2,6 +2,8 @@ from .serializers import YunalishSerializer, FanSerializer, MavzuSerializer,FanD
 from rest_framework.generics import ListAPIView,RetrieveAPIView
 from .models import Yunalish, Fan, Mavzu
 from home_app.pagination import CustomPagination
+from rest_framework import filters
+
 
 class YunalishView(ListAPIView):
     serializer_class = YunalishSerializer
@@ -11,6 +13,8 @@ class YunalishView(ListAPIView):
 class FanView(ListAPIView):
     serializer_class = FanSerializer
     queryset = Fan.objects.all()
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'yunalish__name']
     pagination_class = CustomPagination
 
 
