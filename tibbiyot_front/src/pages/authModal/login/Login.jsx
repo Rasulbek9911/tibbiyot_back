@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { baseUrl } from "../../../services/http";
 // scss
 import "./login.scss";
 import { useContext } from "react";
@@ -7,27 +8,34 @@ import { LoginContext } from "../../../context/AuthLogin";
 
 function Login() {
   const navigate = useNavigate();
-  const { setToken, token } = useContext(LoginContext);
+  const { SetAccessToken, SetRefreshToken } = useContext(LoginContext);
+
+  const [isPending, setIsPending] = useState(false);
 
   const [username, setUserName] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function onSubmit(e) {
     e.preventDefault();
 
-    fetch("https://reqres.in/api/login", {
+    fetch(`${baseUrl}/api/token/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email,
+        username: username,
         password: password,
       }),
     })
       .then((res) => res.json())
-      .then((data) => setToken(data.token))
-      .catch((err) => console.log(err));
+      .then((data) => {
+        setIsPending(true);
+        SetAccessToken(data.access);
+        SetRefreshToken(data.refresh);
+        setIsPending(false);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setIsPending(false));
   }
 
   return (
@@ -47,12 +55,6 @@ function Login() {
             onChange={(e) => setUserName(e.target.value)}
           />
           <input
-            className="email"
-            type="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
             className="password"
             type="password"
             placeholder="Parol"
@@ -62,7 +64,7 @@ function Login() {
             <Link to="/parolni-tiklash">Parolni tiklash</Link>
           </div>
           <div className="loginBtn">
-            <button>Kirish</button>
+            <button>Login</button>
           </div>
         </form>
         <Link to="/royxatdan-otish" className="loginToRoyxatdanOtish">
