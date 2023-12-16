@@ -1,33 +1,43 @@
 import React, { useContext, useState } from "react";
-import photo from "../../assets/images/Photo.png";
 import { useGetFetch } from "../../hooks/useGetFetch";
 import { baseUrl } from "../../services/http";
 import "./fanlarBoyichaOquvResurslariAll.scss";
 // image
 import Accardion from "./Accardion";
 import { Link } from "react-router-dom";
-import { FanContext } from "../../context/OquvResurslar";
 import { Pagination } from "@mui/material";
 
 function FanlarBoyichaOquvResurslariAll() {
+  const [renderFan, setRenderFan] = useState();
+  // search Fan
+  const [searchFan, setSearchFan] = useState(null);
+  function SearchFan(e) {
+    setSearchFan(e.target.value);
+  }
+
+  // pagination funck
   const [page, setPage] = useState(1);
   function handlePagination(e, p) {
     setPage(p);
   }
 
+  // get yunalish
   const {
     data: yunalishlar,
     error,
     isPending,
   } = useGetFetch(`${baseUrl}/resurs/yunalish`);
 
+  // get fanlar
   const {
     data: fanlar,
     error: fanError,
     isPending: fanIsPending,
-  } = useGetFetch(`${baseUrl}/resurs/fan?page=${page}`);
-
-  const { Fan, setFan } = useContext(FanContext);
+  } = useGetFetch(
+    `${baseUrl}/resurs/fan${
+      searchFan ? `?search=${searchFan}` : `?page=${page}`
+    }`
+  );
 
   if (!yunalishlar || !fanlar) {
     return <p></p>;
@@ -38,7 +48,11 @@ function FanlarBoyichaOquvResurslariAll() {
       <div className="content">
         <div className="sidebarFan">
           <form>
-            <input type="text" placeholder="Nomi bilan qidirish..." />
+            <input
+              type="text"
+              placeholder="Fan nomi bilan qidirish..."
+              onChange={SearchFan}
+            />
           </form>
           {yunalishlar.map((yunalish) => {
             return <Accardion key={yunalish.id} {...yunalish} />;
@@ -64,6 +78,7 @@ function FanlarBoyichaOquvResurslariAll() {
           })}
           {/* <div className="ch"></div> */}
           <hr className="hr" />
+
           <Pagination
             count={fanlar.total_pages}
             color="primary"
