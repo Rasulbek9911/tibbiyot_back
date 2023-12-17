@@ -5,7 +5,6 @@ import { baseUrl } from "../../../services/http";
 
 function RoyxatdanOtish() {
   const navigate = useNavigate();
-  const [isPending, setIsPending] = useState(false);
 
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,19 +20,18 @@ function RoyxatdanOtish() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username,
-        email: email,
-        password: password,
-        password2: password2,
+        username,
+        email,
+        password,
+        password2,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        setIsPending(true);
+        console.log(data);
       })
-      .catch((err) => console.log(err))
-      .finally(() => {
-        setIsPending(false);
+      .catch((err) => {
+        console.log(err);
       });
   }
 
@@ -72,17 +70,7 @@ function RoyxatdanOtish() {
             onChange={(e) => setPassword2(e.target.value)}
           />
           <div className="royxatdanOtishBtn">
-            {isPending ? (
-              <div
-                style="width: 20px; height: 20px; margin-top:5px;"
-                className="spinner-border text-light"
-                role="status"
-              >
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            ) : (
-              <button>Ro'yxatdan o'tish</button>
-            )}
+            <button>Ro'yxatdan o'tish</button>
           </div>
         </form>
       </div>

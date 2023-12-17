@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { baseUrl } from "../../../services/http";
 // scss
 import "./login.scss";
@@ -9,8 +9,6 @@ import { LoginContext } from "../../../context/AuthLogin";
 function Login() {
   const navigate = useNavigate();
   const { SetAccessToken, SetRefreshToken } = useContext(LoginContext);
-
-  const [isPending, setIsPending] = useState(false);
 
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -23,19 +21,17 @@ function Login() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username,
-        password: password,
+        username,
+        password,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        setIsPending(true);
         SetAccessToken(data.access);
         SetRefreshToken(data.refresh);
-        setIsPending(false);
+        console.log(data);
       })
-      .catch((err) => console.log(err))
-      .finally(() => setIsPending(false));
+      .catch((err) => console.log(err));
   }
 
   return (
