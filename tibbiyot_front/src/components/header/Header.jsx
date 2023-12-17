@@ -195,7 +195,7 @@ function Header() {
             </li>
             <li className="liDropLink5">
               <NavLink
-                to={token ? "/Fanlar-boyicha-oquv-resurslari" : "/login"}
+                to="/Fanlar-boyicha-oquv-resurslari"
                 className="dropLink"
               >
                 <p>{t("home_page.dropdownNavbar.oquv_resurslar")}</p>
