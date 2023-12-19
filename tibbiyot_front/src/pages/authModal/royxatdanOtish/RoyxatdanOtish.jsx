@@ -4,7 +4,8 @@ import { useNavigate, Navigate } from "react-router-dom";
 import { baseUrl } from "../../../services/http";
 
 function RoyxatdanOtish() {
-  const oldingiOage = useNavigate();
+  const [err, setErr] = useState(false);
+  const oldingiPage = useNavigate();
   const [navigate, setNavigate] = useState(false);
 
   const [username, setUserName] = useState("");
@@ -29,8 +30,16 @@ function RoyxatdanOtish() {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (
+          data?.errors?.username[0] ==
+          "Пользователь с таким именем уже существует."
+        ) {
+          setErr(true);
+        }
+
         if (data.status == "success") {
           setNavigate(true);
+          setErr(false);
         }
       })
       .catch((err) => {
@@ -48,7 +57,7 @@ function RoyxatdanOtish() {
         <i
           className="fa fa-times closeBtn"
           aria-hidden="true"
-          onClick={() => oldingiOage(-1)}
+          onClick={() => oldingiPage(-1)}
         ></i>
         <h1>Ro‘yxatdan o‘tish</h1>
         <form onSubmit={onSubmit}>
@@ -76,6 +85,11 @@ function RoyxatdanOtish() {
             placeholder="Parolni takrorlang"
             onChange={(e) => setPassword2(e.target.value)}
           />
+          {err && (
+            <div className="error">
+              <p>Foydalanuvchi avval ro'yxatdan o'tgan</p>
+            </div>
+          )}
           <div className="royxatdanOtishBtn">
             <button>Ro'yxatdan o'tish</button>
           </div>
