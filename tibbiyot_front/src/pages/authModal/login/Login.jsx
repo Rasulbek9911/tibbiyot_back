@@ -3,13 +3,11 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { baseUrl } from "../../../services/http";
 // scss
 import "./login.scss";
-import { useContext } from "react";
-import { LoginContext } from "../../../context/AuthLogin";
 
 function Login() {
-  const navigate = useNavigate();
-  const { SetAccessToken, SetRefreshToken } = useContext(LoginContext);
+  const oldingiPage = useNavigate();
 
+  const [navigate, setNavigate] = useState(false);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   function onSubmit(e) {
@@ -27,18 +25,22 @@ function Login() {
     })
       .then((res) => res.json())
       .then((data) => {
-        SetAccessToken(data.access);
-        SetRefreshToken(data.refresh);
-        console.log(data);
+        console.log(data.access);
+        localStorage.setItem("AccessToken", data.access);
+        setNavigate(true);
       })
       .catch((err) => console.log(err));
+  }
+
+  if (navigate) {
+    return <Navigate to="/Fanlar-boyicha-oquv-resurslari" />;
   }
 
   return (
     <div className="loginContent">
       <div className="loginModal">
         <i
-          onClick={() => navigate(-1)}
+          onClick={() => oldingiPage(-1)}
           className="fa fa-times closeBtn"
           aria-hidden="true"
         ></i>

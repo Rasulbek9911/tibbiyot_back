@@ -2,8 +2,6 @@ from .models import Yunalish, Mavzu, Fan
 from rest_framework.serializers import ModelSerializer
 
 
-
-
 class FanSerializerForYunalish(ModelSerializer):
     class Meta:
         model = Fan
@@ -36,8 +34,11 @@ class FanSerializer(ModelSerializer):
             "yunalish",
             "rasm",
         )
+
+
 class FanDetailSerializer(ModelSerializer):
-    mavzus = MavzuSerializer(many = True)
+    mavzus = MavzuSerializer(many=True)
+
     class Meta:
         model = Fan
         fields = (

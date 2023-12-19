@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useGetFetch } from "../../hooks/useGetFetch";
 import { useContext } from "react";
-import { LoginContext } from "../../context/AuthLogin";
+// import { LoginContext } from "../../context/AuthLogin";
 
 // images
 import logo from "../../assets/icons/logo.svg";
@@ -30,7 +30,7 @@ function Header() {
   const { data: hamkors } = useGetFetch(url);
 
   // login
-  const { token } = useContext(LoginContext);
+  // const { token } = useContext(LoginContext);
 
   return (
     <header>

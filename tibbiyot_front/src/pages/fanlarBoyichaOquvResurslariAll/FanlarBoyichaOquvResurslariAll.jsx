@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useGetFetch } from "../../hooks/useGetFetch";
 import { baseUrl } from "../../services/http";
 import "./fanlarBoyichaOquvResurslariAll.scss";
@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { Pagination } from "@mui/material";
 
 function FanlarBoyichaOquvResurslariAll() {
-  const [renderFan, setRenderFan] = useState();
   // search Fan
   const [searchFan, setSearchFan] = useState(null);
   function SearchFan(e) {
@@ -22,26 +21,70 @@ function FanlarBoyichaOquvResurslariAll() {
   }
 
   // get yunalish
-  const {
-    data: yunalishlar,
-    error,
-    isPending,
-  } = useGetFetch(`${baseUrl}/resurs/yunalish`);
+  const [yunalishlar, setYunalishlar] = useState(null);
+
+  useEffect(() => {
+    const headers = {
+      Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
+    };
+    fetch(
+      `${baseUrl}/resurs/yunalish`,
+      { headers },
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      })
+      .then((data) => {
+        setYunalishlar(data);
+      })
+      .catch((err) => {
+        setError("Not found");
+      });
+  }, []);
 
   // get fanlar
-  const {
-    data: fanlar,
-    error: fanError,
-    isPending: fanIsPending,
-  } = useGetFetch(
-    `${baseUrl}/resurs/fan${
-      searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
-    }`
-  );
+  const [fanlar, setData] = useState(null);
+  const [isPendingg, setIspending] = useState(false);
+  const [errorr, setError] = useState(null);
+
+  useEffect(() => {
+    setIspending(true);
+    const headers = {
+      Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
+    };
+    console.log(headers);
+    fetch(
+      `${baseUrl}/resurs/fan${
+        searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
+      }`,
+      { headers },
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
+        console.log(data);
+        setIspending(false);
+      })
+      .catch((err) => {
+        setError("Not found");
+        setIspending(false);
+      });
+  }, []);
 
   if (!yunalishlar || !fanlar) {
     return <p></p>;
   }
+
   return (
     <div className="fanlarBoyichaOquResurslarAll container">
       <h1 className="title">FANLAR BO’YICHA O’QUV RESURSLAR</h1>
