@@ -10,6 +10,12 @@ function Login() {
   const [navigate, setNavigate] = useState(false);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+
+
+  if(username !== "" && password !== ""){
+    
+  }
+
   function onSubmit(e) {
     e.preventDefault();
 
@@ -25,9 +31,10 @@ function Login() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.access);
         localStorage.setItem("AccessToken", data.access);
-        setNavigate(true);
+        if (data.access) {
+          setNavigate(true);
+        }
       })
       .catch((err) => console.log(err));
   }

@@ -56,7 +56,7 @@ function FanlarBoyichaOquvResurslariAll() {
     const headers = {
       Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
     };
-    console.log(headers);
+    // console.log(headers);
     fetch(
       `${baseUrl}/resurs/fan${
         searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
