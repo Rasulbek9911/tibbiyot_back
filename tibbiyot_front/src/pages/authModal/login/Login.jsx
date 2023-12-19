@@ -25,7 +25,8 @@ function Login() {
     })
       .then((res) => res.json())
       .then((data) => {
-        localStorage.setItem("AccessToken", JSON.stringify(data.access));
+        console.log(data.access)
+        localStorage.setItem("AccessToken", data.access);
         setNavigate(true);
       })
       .catch((err) => console.log(err));

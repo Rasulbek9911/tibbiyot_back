@@ -43,17 +43,18 @@ function FanlarBoyichaOquvResurslariAll() {
 
   useEffect(() => {
     setIspending(true);
+    const headers = { 'Authorization': `Bearer ${localStorage.getItem("AccessToken")}`};
+    console.log(headers)
     fetch(
       `${baseUrl}/resurs/fan${
         searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
       }`,
+      {headers},
       {
         method: "GET",
-        headers: {
-          // "Accept-Language": `${i18n.language}`,
-          "Content-Type": "application/json",
-          Authorization: "Bearer" + localStorage.getItem("AccessToken"),
-        },
+        // headers: {
+        //   Authorization: "Bearer" + localStorage.getItem("AccessToken"),
+        // },
       }
     )
       .then((res) => {
@@ -62,6 +63,7 @@ function FanlarBoyichaOquvResurslariAll() {
       })
       .then((data) => {
         setData(data);
+        console.log(data)
         setIspending(false);
       })
       .catch((err) => {
