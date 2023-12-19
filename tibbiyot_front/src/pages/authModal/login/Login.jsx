@@ -17,7 +17,6 @@ function Login() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
       },
       body: JSON.stringify({
         username,
