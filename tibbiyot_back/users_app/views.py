@@ -9,9 +9,7 @@ class UserRegisterView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             return Response(
-                {"status": "success", "message": "User created successfully", 'user': user},
-                status=201,
-            )
+                {"status": "success", "message": "User created successfully"},status=201)
         else:
             return Response(
                 {"status": "failure", "errors": serializer.errors}, status=400
