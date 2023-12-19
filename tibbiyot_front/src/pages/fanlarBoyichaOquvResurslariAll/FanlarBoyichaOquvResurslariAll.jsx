@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useGetFetch } from "../../hooks/useGetFetch";
 import { baseUrl } from "../../services/http";
 import "./fanlarBoyichaOquvResurslariAll.scss";
@@ -28,15 +28,47 @@ function FanlarBoyichaOquvResurslariAll() {
   } = useGetFetch(`${baseUrl}/resurs/yunalish`);
 
   // get fanlar
-  const {
-    data: fanlar,
-    error: fanError,
-    isPending: fanIsPending,
-  } = useGetFetch(
-    `${baseUrl}/resurs/fan${
-      searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
-    }`
-  );
+  // const {
+  //   data: fanlar,
+  //   error: fanError,
+  //   isPending: fanIsPending,
+  // } = useGetFetch(
+  //   `${baseUrl}/resurs/fan${
+  //     searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
+  //   }`
+  // );
+  const [fanlar, setData] = useState(null);
+  const [isPendingg, setIspending] = useState(false);
+  const [errorr, setError] = useState(null);
+
+  useEffect(() => {
+    setIspending(true);
+    fetch(
+      `${baseUrl}/resurs/fan${
+        searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
+      }`,
+      {
+        method: "GET",
+        headers: {
+          // "Accept-Language": `${i18n.language}`,
+          "Content-Type": "application/json",
+          Authorization: "Bearer" + localStorage.getItem("AccessToken"),
+        },
+      }
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
+        setIspending(false);
+      })
+      .catch((err) => {
+        setError("Not found");
+        setIspending(false);
+      });
+  }, []);
 
   if (!yunalishlar || !fanlar) {
     return <p></p>;
