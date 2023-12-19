@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./royxatdanOtish.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { baseUrl } from "../../../services/http";
 
 function RoyxatdanOtish() {
-  const navigate = useNavigate();
+  const oldingiOage = useNavigate();
+  const [navigate, setNavigate] = useState(false);
 
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,19 +21,25 @@ function RoyxatdanOtish() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
-        email,
-        password,
-        password2,
+        username: username,
+        email: email,
+        password: password,
+        password2: password2,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.status == "success") {
+          setNavigate(true);
+        }
       })
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  if (navigate) {
+    return <Navigate to="/login" />;
   }
 
   return (
@@ -41,7 +48,7 @@ function RoyxatdanOtish() {
         <i
           className="fa fa-times closeBtn"
           aria-hidden="true"
-          onClick={() => navigate(-1)}
+          onClick={() => oldingiOage(-1)}
         ></i>
         <h1>Ro‘yxatdan o‘tish</h1>
         <form onSubmit={onSubmit}>

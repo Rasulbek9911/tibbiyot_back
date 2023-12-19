@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { Pagination } from "@mui/material";
 
 function FanlarBoyichaOquvResurslariAll() {
-  const [renderFan, setRenderFan] = useState();
   // search Fan
   const [searchFan, setSearchFan] = useState(null);
   function SearchFan(e) {
@@ -42,6 +41,7 @@ function FanlarBoyichaOquvResurslariAll() {
   if (!yunalishlar || !fanlar) {
     return <p></p>;
   }
+
   return (
     <div className="fanlarBoyichaOquResurslarAll container">
       <h1 className="title">FANLAR BO’YICHA O’QUV RESURSLAR</h1>
