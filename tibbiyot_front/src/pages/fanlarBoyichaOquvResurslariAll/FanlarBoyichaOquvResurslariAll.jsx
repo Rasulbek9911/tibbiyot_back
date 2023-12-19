@@ -21,40 +21,49 @@ function FanlarBoyichaOquvResurslariAll() {
   }
 
   // get yunalish
-  const {
-    data: yunalishlar,
-    error,
-    isPending,
-  } = useGetFetch(`${baseUrl}/resurs/yunalish`);
+  const [yunalishlar, setYunalishlar] = useState(null);
+
+  useEffect(() => {
+    const headers = {
+      Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
+    };
+    fetch(
+      `${baseUrl}/resurs/yunalish`,
+      { headers },
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      })
+      .then((data) => {
+        setYunalishlar(data);
+      })
+      .catch((err) => {
+        setError("Not found");
+      });
+  }, []);
 
   // get fanlar
-  // const {
-  //   data: fanlar,
-  //   error: fanError,
-  //   isPending: fanIsPending,
-  // } = useGetFetch(
-  //   `${baseUrl}/resurs/fan${
-  //     searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
-  //   }`
-  // );
   const [fanlar, setData] = useState(null);
   const [isPendingg, setIspending] = useState(false);
   const [errorr, setError] = useState(null);
 
   useEffect(() => {
     setIspending(true);
-    const headers = { 'Authorization': `Bearer ${localStorage.getItem("AccessToken")}`};
-    console.log(headers)
+    const headers = {
+      Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
+    };
+    console.log(headers);
     fetch(
       `${baseUrl}/resurs/fan${
         searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
       }`,
-      {headers},
+      { headers },
       {
         method: "GET",
-        // headers: {
-        //   Authorization: "Bearer" + localStorage.getItem("AccessToken"),
-        // },
       }
     )
       .then((res) => {
@@ -63,7 +72,7 @@ function FanlarBoyichaOquvResurslariAll() {
       })
       .then((data) => {
         setData(data);
-        console.log(data)
+        console.log(data);
         setIspending(false);
       })
       .catch((err) => {

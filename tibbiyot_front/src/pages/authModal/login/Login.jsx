@@ -25,7 +25,7 @@ function Login() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.access)
+        console.log(data.access);
         localStorage.setItem("AccessToken", data.access);
         setNavigate(true);
       })
@@ -33,7 +33,7 @@ function Login() {
   }
 
   if (navigate) {
-    return <Navigate to="/" />;
+    return <Navigate to="/Fanlar-boyicha-oquv-resurslari" />;
   }
 
   return (
