@@ -2,11 +2,8 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useGetFetch } from "../../hooks/useGetFetch";
-import { useContext } from "react";
-// import { LoginContext } from "../../context/AuthLogin";
 
 // images
-import logo from "../../assets/icons/logo.svg";
 import logoOrg from "../../assets/icons/logoOrg.png";
 import login from "../../assets/icons/Login.svg";
 import nurse from "../../assets/images/nurse.png";
@@ -30,7 +27,7 @@ function Header() {
   const { data: hamkors } = useGetFetch(url);
 
   // login
-  // const { token } = useContext(LoginContext);
+  const token = localStorage.getItem("AccessToken");
 
   return (
     <header>
@@ -197,6 +194,9 @@ function Header() {
               <NavLink
                 to="/Fanlar-boyicha-oquv-resurslari"
                 className="dropLink"
+                // onClick={() => {
+                //   console.log(token);
+                // }}
               >
                 <p>{t("home_page.dropdownNavbar.oquv_resurslar")}</p>
               </NavLink>

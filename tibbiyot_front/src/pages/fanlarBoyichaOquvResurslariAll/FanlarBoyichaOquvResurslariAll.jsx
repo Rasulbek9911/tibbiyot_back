@@ -4,8 +4,9 @@ import { baseUrl } from "../../services/http";
 import "./fanlarBoyichaOquvResurslariAll.scss";
 // image
 import Accardion from "./Accardion";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Pagination } from "@mui/material";
+import { LoginContext } from "../../context/AuthLogin";
 
 function FanlarBoyichaOquvResurslariAll() {
   // search Fan
@@ -46,6 +47,9 @@ function FanlarBoyichaOquvResurslariAll() {
       });
   }, []);
 
+  // useContext
+  const { SetOldToken } = useContext(LoginContext);
+
   // get fanlar
   const [fanlar, setData] = useState(null);
   const [isPendingg, setIspending] = useState(false);
@@ -56,7 +60,6 @@ function FanlarBoyichaOquvResurslariAll() {
     const headers = {
       Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
     };
-    // console.log(headers);
     fetch(
       `${baseUrl}/resurs/fan${
         searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
@@ -72,10 +75,10 @@ function FanlarBoyichaOquvResurslariAll() {
       })
       .then((data) => {
         setData(data);
-        console.log(data);
         setIspending(false);
       })
       .catch((err) => {
+        SetOldToken(true);
         setError("Not found");
         setIspending(false);
       });

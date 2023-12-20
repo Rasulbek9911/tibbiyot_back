@@ -1,20 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // scss
 import "./fanMundarija.scss";
 // images
 import FanAccardion from "./FanAccardion";
-import { useGetFetch } from "../../../hooks/useGetFetch";
+// import { useGetFetch } from "../../../hooks/useGetFetch";
 import { baseUrl } from "../../../services/http";
 import { useParams } from "react-router-dom";
 
 function FanMundarija() {
   const { id } = useParams();
 
-  const {
-    data: Fan,
-    error,
-    isPending,
-  } = useGetFetch(`${baseUrl}/resurs/fan/${id}`);
+  // get Fan
+  const [Fan, setData] = useState(null);
+  const [isPendingg, setIspending] = useState(false);
+  const [errorr, setError] = useState(null);
+
+  useEffect(() => {
+    setIspending(true);
+    const headers = {
+      Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
+    };
+    fetch(
+      `${baseUrl}/resurs/fan/${id}`,
+      { headers },
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
+        setIspending(false);
+      })
+      .catch((err) => {
+        setError("Not found");
+        setIspending(false);
+      });
+  }, []);
+
   if (!Fan) {
     return <p></p>;
   }
