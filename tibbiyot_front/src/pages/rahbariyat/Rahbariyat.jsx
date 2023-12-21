@@ -38,6 +38,7 @@ function Rahbariyat() {
                       {person.familya} {person.ism} {person.sharf}
                     </h2>
                   </div>
+
                   <div className="descreption">
                     <div className="info">
                       <p className="child">
