@@ -7,7 +7,8 @@ from django.utils import timezone
 
 class CommonInformation(TranslatableModel):
     translations = TranslatedFields(
-        title=models.CharField(_("title"), max_length=256, null=True, blank=True),
+        title=models.CharField(
+            _("title"), max_length=256, null=True, blank=True),
         description=RichTextUploadingField(_("description")),
     )
 
@@ -131,6 +132,7 @@ class Yangilik(TranslatableModel):
         return self.title
 
     class Meta:
+        ordering = ('-translations__created_at', )
         verbose_name = _("Yangilik")
         verbose_name_plural = _("Yangiliklar")
 
@@ -150,6 +152,19 @@ class Adabiyot(TranslatableModel):
         verbose_name_plural = _("Adabiyotlar")
 
 
+class YaratiladiganAdabiyot(TranslatableModel):
+    translations = TranslatedFields(
+        file=models.FileField(_("file"), upload_to="yaratiladigan_adabiyot/"),
+    )
+
+    def __str__(self):
+        return self.id
+
+    class Meta:
+        verbose_name = _("YaratiladiganAdabiyot")
+        verbose_name_plural = _("YaratiladiganAdabiyotlar")
+
+
 class Bolim(TranslatableModel):
     translations = TranslatedFields(
         title=models.CharField(_("title"), max_length=256),
@@ -162,3 +177,35 @@ class Bolim(TranslatableModel):
     class Meta:
         verbose_name = _("Bo'lim")
         verbose_name_plural = _("Bo'limlar")
+
+
+class FoydaliMalumot(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(_("title"), max_length=256),
+        image=models.ImageField(_("image"), upload_to="FoydaliM/"),
+        description=RichTextUploadingField(_("description")),
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _("Foydali_Malumot")
+        verbose_name_plural = _("Foydali_Malumotlar")
+
+
+class VideoContent(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(_("title"), max_length=256),
+        video_url=models.URLField(_('video_url'), max_length=1024),
+        created_at=models.DateTimeField(default=timezone.now),
+        updated_at=models.DateTimeField(auto_now_add=True),
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['-translations__created_at', ]
+        verbose_name = _("VideoContent")
+        verbose_name_plural = _("VideoContentlar")

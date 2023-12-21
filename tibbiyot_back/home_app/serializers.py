@@ -10,6 +10,9 @@ from .models import (
     Yangilik,
     Adabiyot,
     Bolim,
+    YaratiladiganAdabiyot,
+    FoydaliMalumot,
+    VideoContent
 )
 from parler_rest.serializers import TranslatableModelSerializer
 from parler_rest.fields import TranslatedFieldsField
@@ -116,4 +119,22 @@ class AdabiyotSerializer(BaseTranslatableSerializer):
 class BolimSerializer(BaseTranslatableSerializer):
     class Meta:
         model = Bolim
+        fields = "__all__"
+
+
+class YaratiladiganAdabiyotSerializer(BaseTranslatableSerializer):
+    class Meta:
+        model = YaratiladiganAdabiyot
+        fields = "__all__"
+
+
+class FoydaliMalumotSerializer(BaseTranslatableSerializer):
+    class Meta:
+        model = FoydaliMalumot
+        fields = "__all__"
+
+
+class VideoContentSerializer(BaseTranslatableSerializer):
+    class Meta:
+        model = VideoContent
         fields = "__all__"

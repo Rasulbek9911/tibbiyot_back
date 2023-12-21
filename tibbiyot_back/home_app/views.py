@@ -10,6 +10,9 @@ from .serializers import (
     YangilikSerializer,
     AdabiyotSerializer,
     BolimSerializer,
+    YaratiladiganAdabiyotSerializer,
+    FoydaliMalumotSerializer,
+    VideoContentSerializer
 )
 from .models import (
     CommonInformation,
@@ -22,8 +25,11 @@ from .models import (
     Yangilik,
     Adabiyot,
     Bolim,
+    YaratiladiganAdabiyot,
+    FoydaliMalumot,
+    VideoContent
 )
-from .pagination import DoubleShort, ExtraShort, Middle
+from .pagination import DoubleShort, ExtraShort, Middle, PageSix
 from rest_framework.response import Response
 
 
@@ -95,3 +101,24 @@ class AdabiyotView(ListAPIView):
 class BolimView(ListAPIView):
     serializer_class = BolimSerializer
     queryset = Bolim.objects.all()
+
+
+class YaratiladiganAdabiyotView(ListAPIView):
+    serializer_class = YaratiladiganAdabiyotSerializer
+    queryset = YaratiladiganAdabiyot.objects.all()
+
+
+class VideoContentHomeView(ListAPIView):
+    serializer_class = VideoContentSerializer
+    queryset = VideoContent.objects.all()[:4]
+
+
+class VideoContentAllView(ListAPIView):
+    serializer_class = VideoContentSerializer
+    queryset = VideoContent.objects.all()
+    pagination_class = PageSix
+
+
+class FoydaliMalumotView(ListAPIView):
+    serializer_class = FoydaliMalumotSerializer
+    queryset = FoydaliMalumot.objects.all().order_by('?')[:1]
