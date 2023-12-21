@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useGetFetch } from "../../hooks/useGetFetch";
-import { useContext } from "react";
-// import { LoginContext } from "../../context/AuthLogin";
 
 // images
-import logo from "../../assets/icons/logo.svg";
 import logoOrg from "../../assets/icons/logoOrg.png";
 import login from "../../assets/icons/Login.svg";
 import nurse from "../../assets/images/nurse.png";
@@ -16,6 +13,9 @@ import gmail from "../../assets/icons/gmail.svg";
 // sass
 import "./header.scss";
 import { baseUrl } from "../../services/http";
+import { LoginContext } from "../../context/AuthLogin";
+
+// const { oldToken, SetOldToken } = useContext(LoginContext);
 
 function Header() {
   // language idea
@@ -28,9 +28,6 @@ function Header() {
   const url = `${baseUrl}/kategoriya_hamkor`;
 
   const { data: hamkors } = useGetFetch(url);
-
-  // login
-  // const { token } = useContext(LoginContext);
 
   return (
     <header>
@@ -47,9 +44,7 @@ function Header() {
               <NavLink>{t("home_page.top_navbar.courses")}</NavLink>
             </li>
             <li>
-              <NavLink to="/Umumiy-malumot">
-                {t("home_page.top_navbar.services")}
-              </NavLink>
+              <NavLink>{t("home_page.top_navbar.services")}</NavLink>
             </li>
             <li>
               <NavLink to="/Yangiliklar">
@@ -94,8 +89,9 @@ function Header() {
               <img src={phone} /> <p>1003</p>
             </li>
             <Link to="/login" className="login">
-              <img src={login} alt="Kirish" />{" "}
-              <p>{t("home_page.top_navbar.login")}</p>
+              <img src={login} alt="Kirish" />
+              {/* {oldToken ? <p>Kirish</p> : <p>Chiqish</p>} */}
+              <p>Kirish</p>
             </Link>
           </ul>
           <ul className="dropdownNavbar">
@@ -197,6 +193,9 @@ function Header() {
               <NavLink
                 to="/Fanlar-boyicha-oquv-resurslari"
                 className="dropLink"
+                // onClick={() => {
+                //   console.log(token);
+                // }}
               >
                 <p>{t("home_page.dropdownNavbar.oquv_resurslar")}</p>
               </NavLink>

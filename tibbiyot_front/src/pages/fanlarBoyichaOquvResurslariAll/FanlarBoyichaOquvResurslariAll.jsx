@@ -4,8 +4,9 @@ import { baseUrl } from "../../services/http";
 import "./fanlarBoyichaOquvResurslariAll.scss";
 // image
 import Accardion from "./Accardion";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Pagination } from "@mui/material";
+import { LoginContext } from "../../context/AuthLogin";
 
 function FanlarBoyichaOquvResurslariAll() {
   // search Fan
@@ -40,23 +41,25 @@ function FanlarBoyichaOquvResurslariAll() {
       })
       .then((data) => {
         setYunalishlar(data);
+        SetOldToken(false);
       })
       .catch((err) => {
+        SetOldToken(true);
+        console.log(err);
         setError("Not found");
       });
   }, []);
 
+  // useContext
+  const { oldToken, SetOldToken } = useContext(LoginContext);
+
   // get fanlar
   const [fanlar, setData] = useState(null);
-  const [isPendingg, setIspending] = useState(false);
-  const [errorr, setError] = useState(null);
 
   useEffect(() => {
-    setIspending(true);
     const headers = {
       Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
     };
-    console.log(headers);
     fetch(
       `${baseUrl}/resurs/fan${
         searchFan ? `?search=${searchFan}&page=${page}` : `?page=${page}`
@@ -72,15 +75,17 @@ function FanlarBoyichaOquvResurslariAll() {
       })
       .then((data) => {
         setData(data);
-        console.log(data);
-        setIspending(false);
+        SetOldToken(false);
       })
       .catch((err) => {
-        setError("Not found");
-        setIspending(false);
+        console.log(err);
+        SetOldToken(true);
       });
   }, []);
 
+  if (oldToken) {
+    return <Navigate to="/login" />;
+  }
   if (!yunalishlar || !fanlar) {
     return <p></p>;
   }

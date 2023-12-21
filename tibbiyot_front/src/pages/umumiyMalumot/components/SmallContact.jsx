@@ -1,5 +1,5 @@
 import React from "react";
-import "./smallContact.scss"
+import "./smallContact.scss";
 
 function SmallContact() {
   return (
@@ -15,7 +15,7 @@ function SmallContact() {
       <hr />
 
       <p className="mail">
-        Email <br /> contact@logistics.com
+        Email <br /> ttrm.2@mail.ru
       </p>
     </div>
   );
