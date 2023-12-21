@@ -41,22 +41,22 @@ function FanlarBoyichaOquvResurslariAll() {
       })
       .then((data) => {
         setYunalishlar(data);
+        SetOldToken(false);
       })
       .catch((err) => {
+        SetOldToken(true);
+        console.log(err);
         setError("Not found");
       });
   }, []);
 
   // useContext
-  const { SetOldToken } = useContext(LoginContext);
+  const { oldToken, SetOldToken } = useContext(LoginContext);
 
   // get fanlar
   const [fanlar, setData] = useState(null);
-  const [isPendingg, setIspending] = useState(false);
-  const [errorr, setError] = useState(null);
 
   useEffect(() => {
-    setIspending(true);
     const headers = {
       Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
     };
@@ -75,15 +75,17 @@ function FanlarBoyichaOquvResurslariAll() {
       })
       .then((data) => {
         setData(data);
-        setIspending(false);
+        SetOldToken(false);
       })
       .catch((err) => {
+        console.log(err);
         SetOldToken(true);
-        setError("Not found");
-        setIspending(false);
       });
   }, []);
 
+  if (oldToken) {
+    return <Navigate to="/login" />;
+  }
   if (!yunalishlar || !fanlar) {
     return <p></p>;
   }

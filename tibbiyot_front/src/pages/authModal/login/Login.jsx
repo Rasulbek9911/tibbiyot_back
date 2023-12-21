@@ -22,12 +22,13 @@ function Login() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username,
-          password,
+          refresh: localStorage.getItem("RefreshToken"),
         }),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+          localStorage.setItem("AccessToken", data.access);
+        })
         .catch((err) => console.log(err));
     }, []);
   }
@@ -65,8 +66,8 @@ function Login() {
           ) {
             setErr(true);
           }
-          console.log(data);
           localStorage.setItem("AccessToken", data.access);
+          localStorage.setItem("RefreshToken", data.refresh);
           if (data.access) {
             setNavigate(true);
             setErr(false);
@@ -79,7 +80,7 @@ function Login() {
   }
 
   if (navigate) {
-    return <Navigate to="/Fanlar-boyicha-oquv-resurslari" />;
+    return <Navigate to="/" />;
   }
 
   return (
