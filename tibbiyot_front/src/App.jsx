@@ -24,6 +24,7 @@ import ParolniTiklash from "./pages/authModal/parolniTiklash/ParolniTiklash";
 import Yangiliklar from "./pages/yangiliklar/Yangiliklar";
 import YangilikLayout from "./pages/yangiliklar/YangilikLayout";
 import BatafsilYangilik from "./pages/yangiliklar/BatafsilYangilik";
+import VideoMateriallar from "./pages/videoMateriallar/VideoMateriallar";
 
 function App() {
   const routes = createBrowserRouter([
@@ -92,6 +93,10 @@ function App() {
         {
           path: "Yangiliklar",
           element: <Yangiliklar />,
+        },
+        {
+          path: "video_materiallar",
+          element: <VideoMateriallar />,
         },
         {
           path: "Fanlar-boyicha-oquv-resurslari",
