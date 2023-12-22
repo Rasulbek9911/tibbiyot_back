@@ -51,6 +51,9 @@ function Header() {
                 {t("home_page.top_navbar.news")}
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/video_materiallar">Video materiallar</NavLink>
+            </li>
             {/* <li>
               <NavLink>{t("home_page.top_navbar.contact")}</NavLink>
             </li> */}

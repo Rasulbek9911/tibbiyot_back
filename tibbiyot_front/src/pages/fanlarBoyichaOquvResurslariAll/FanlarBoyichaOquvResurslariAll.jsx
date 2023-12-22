@@ -46,7 +46,6 @@ function FanlarBoyichaOquvResurslariAll() {
       .catch((err) => {
         SetOldToken(true);
         console.log(err);
-        setError("Not found");
       });
   }, []);
 
