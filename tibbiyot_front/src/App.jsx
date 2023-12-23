@@ -25,6 +25,7 @@ import Yangiliklar from "./pages/yangiliklar/Yangiliklar";
 import YangilikLayout from "./pages/yangiliklar/YangilikLayout";
 import BatafsilYangilik from "./pages/yangiliklar/BatafsilYangilik";
 import VideoMateriallar from "./pages/videoMateriallar/VideoMateriallar";
+import OqXalatModal from "./pages/umumiyMalumot/components/OqXalatModal";
 
 function App() {
   const routes = createBrowserRouter([
@@ -121,6 +122,10 @@ function App() {
               ],
             },
           ],
+        },
+        {
+          path: "javob",
+          element: <OqXalatModal />,
         },
         {
           path: "login",
