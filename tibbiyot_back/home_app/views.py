@@ -122,3 +122,7 @@ class VideoContentAllView(ListAPIView):
 class FoydaliMalumotView(ListAPIView):
     serializer_class = FoydaliMalumotSerializer
     queryset = FoydaliMalumot.objects.all().order_by('?')[:1]
+
+class FoydaliMalumotRetriveView(RetrieveAPIView):
+    serializer_class = FoydaliMalumotSerializer
+    queryset = FoydaliMalumot.objects.all()
