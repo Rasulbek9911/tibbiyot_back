@@ -24,6 +24,8 @@ import ParolniTiklash from "./pages/authModal/parolniTiklash/ParolniTiklash";
 import Yangiliklar from "./pages/yangiliklar/Yangiliklar";
 import YangilikLayout from "./pages/yangiliklar/YangilikLayout";
 import BatafsilYangilik from "./pages/yangiliklar/BatafsilYangilik";
+import VideoMateriallar from "./pages/videoMateriallar/VideoMateriallar";
+import OqXalatModal from "./pages/umumiyMalumot/components/OqXalatModal";
 
 function App() {
   const routes = createBrowserRouter([
@@ -94,6 +96,10 @@ function App() {
           element: <Yangiliklar />,
         },
         {
+          path: "video_materiallar",
+          element: <VideoMateriallar />,
+        },
+        {
           path: "Fanlar-boyicha-oquv-resurslari",
           element: <PullikResurslar />,
           children: [
@@ -116,6 +122,10 @@ function App() {
               ],
             },
           ],
+        },
+        {
+          path: "javob",
+          element: <OqXalatModal />,
         },
         {
           path: "login",

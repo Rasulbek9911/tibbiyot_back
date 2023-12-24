@@ -52,7 +52,7 @@ function News() {
                         : new Date(yangilik.created_at).getFullYear()}
                     </span>
                   </div>
-                  <p>{yangilik.title.slice(0, 130)}...</p>
+                  <p>{yangilik.title.slice(0, 125)}...</p>
                 </div>
               </Link>
             );

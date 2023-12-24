@@ -1,0 +1,65 @@
+.videoMateriallar{
+    margin-bottom: 50px;
+      display: flex;
+      column-gap: 50px; 
+      padding: 0;
+      width: 100%;
+        .videos{
+          width: 70%;
+          h2{
+            margin-bottom: 30px;
+          }
+          .rows{
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 30px;
+           .cardss{
+            color: black;
+            text-decoration: none;
+            width: 48%;
+            border-bottom: 1px solid  #ccc;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            padding-bottom: 10px;
+            .videoBlok{
+              width: 100%;
+              height: 250px;
+              .reactPlayer{
+                width: 100% !important;
+                height: 100% !important;
+                // border-radius: 10px;
+               
+              }
+            }
+            .desc{
+              width: 100%;
+              padding: 0px 10px;
+              .date{
+                display: flex;
+                justify-content: space-between;
+                column-gap: 15px;
+                margin-bottom: 3px;
+                span{
+                  color: #091242;
+                  font-weight: 500;
+                }
+              }
+              p{
+                font-weight: 500;
+                padding: 0;
+                margin: 0;
+                margin-bottom: 10px;
+              }
+            }
+           }
+          }
+        }
+        .sidebarNews{
+          width: 30%;
+          display: flex;
+          flex-direction: column;
+          row-gap: 50px;
+        }
+  }

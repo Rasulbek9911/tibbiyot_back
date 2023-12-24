@@ -23,6 +23,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.3.2",
     "react-paginate": "^8.2.0",
+    "react-player": "^2.14.1",
     "react-router-dom": "^6.18.0",
     "sass": "^1.69.5",
     "uuid": "^9.0.1"

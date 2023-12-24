@@ -15,7 +15,8 @@ from .views import (
     VideoContentAllView,
     VideoContentHomeView,
     FoydaliMalumotView,
-    YaratiladiganAdabiyotView
+    YaratiladiganAdabiyotView,
+    FoydaliMalumotRetriveView
 )
 
 urlpatterns = [
@@ -35,5 +36,6 @@ urlpatterns = [
     path("video_all", VideoContentAllView.as_view()),
     path("yaratiladigan_adabiyot", YaratiladiganAdabiyotView.as_view()),
     path("foydali_malumot", FoydaliMalumotView.as_view()),
+    path("foydali_malumot/<int:pk>/", FoydaliMalumotRetriveView.as_view()),
 
 ]

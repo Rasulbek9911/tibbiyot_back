@@ -9,12 +9,16 @@ import VideoDarslik from "./VideoDarslik";
 import HomeNews from "./HomeNews";
 import SidebarHome from "../../components/sidebar/SidebarHome";
 import OqXalat from "../umumiyMalumot/components/OqXalat";
+import VideoContentHome from "./VideoContentHome";
 
 function Home() {
   return (
     <div className="home">
       <div className="boshSahifa container">
-        <HomeNews />
+        <div className="content">
+          <HomeNews />
+          <VideoContentHome />
+        </div>
         <div className="homeSidebar">
           <SidebarHome />
           <OqXalat />
