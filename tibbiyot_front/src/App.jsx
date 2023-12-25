@@ -100,6 +100,10 @@ function App() {
           element: <VideoMateriallar />,
         },
         {
+          path: ":javob",
+          element: <OqXalatModal />,
+        },
+        {
           path: "Fanlar-boyicha-oquv-resurslari",
           element: <PullikResurslar />,
           children: [
@@ -123,10 +127,10 @@ function App() {
             },
           ],
         },
-        {
-          path: "javob",
-          element: <OqXalatModal />,
-        },
+        // {
+        //   path: "javob",
+        //   element: <OqXalatModal />,
+        // },
         {
           path: "login",
           element: <Login />,

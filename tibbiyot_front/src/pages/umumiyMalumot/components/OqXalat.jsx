@@ -10,7 +10,6 @@ function OqXalat() {
   if (!data) {
     return <p></p>;
   }
-  console.log(data[0].id);
   return (
     <div className="oqXalat">
       <h2>{data[0].title}</h2>
@@ -18,7 +17,7 @@ function OqXalat() {
         <img src={data[0].image} alt="" />
       </div>
       <div className="javob">
-        <Link to="/javob">Javob</Link>
+        <Link to={`/${data[0].id}`}>Javob</Link>
       </div>
     </div>
   );
