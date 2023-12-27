@@ -9,29 +9,32 @@ function Login() {
   const [loader, setLoader] = useState(false);
   const [err, setErr] = useState(false);
 
-  const [navigate, setNavigate] = useState(false);
+  const navigate = useNavigate();
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const { oldToken } = useContext(LoginContext);
-  if (oldToken) {
-    useEffect(() => {
-      fetch(`${baseUrl}/api/token/refresh/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          refresh: localStorage.getItem("RefreshToken"),
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          localStorage.setItem("AccessToken", data.access);
-        })
-        .catch((err) => console.log(err));
-    }, []);
-  }
+  // const { oldToken } = useContext(LoginContext);
+  // ===================================
+  // if (!oldToken) {
+  //   useEffect(() => {
+  //     fetch(`${baseUrl}/api/token/refresh/`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         refresh: localStorage.getItem("RefreshToken"),
+  //       }),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         localStorage.setItem("AccessToken", data.access);
+  //         console.log(data);
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }, []);
+  // }
+  // ==============================
 
   function onSubmit(e) {
     e.preventDefault();
@@ -70,25 +73,24 @@ function Login() {
           if (data?.access) {
             localStorage.setItem("AccessToken", data.access);
             localStorage.setItem("RefreshToken", data.refresh);
-            setNavigate(true);
+            navigate("/Fanlar-boyicha-oquv-resurslari");
             setErr(false);
+            location.reload();
           }
         })
         .catch((err) => console.log(err))
-        .finally(() => setLoader(false));
+        .finally(() => {
+          setLoader(false);
+        });
       setLoader(true);
     }
-  }
-
-  if (navigate) {
-    return <Navigate to="/" />;
   }
 
   return (
     <div className="loginContent">
       <div className="loginModal">
         <i
-          onClick={() => setNavigate(true)}
+          onClick={() => navigate("/")}
           className="fa fa-times closeBtn"
           aria-hidden="true"
         ></i>

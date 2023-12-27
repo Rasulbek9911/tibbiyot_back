@@ -4,7 +4,6 @@ import { useNavigate, Navigate } from "react-router-dom";
 import { baseUrl } from "../../../services/http";
 
 function RoyxatdanOtish() {
-  const oldingiPage = useNavigate();
   const [loader, setLoader] = useState(false);
   const [err, setErr] = useState(false);
   const [navigate, setNavigate] = useState(false);
