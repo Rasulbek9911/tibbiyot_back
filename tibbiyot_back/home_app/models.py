@@ -158,7 +158,7 @@ class YaratiladiganAdabiyot(TranslatableModel):
     )
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
     class Meta:
         verbose_name = _("YaratiladiganAdabiyot")
