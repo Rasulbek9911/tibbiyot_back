@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useGetFetch } from "../../hooks/useGetFetch";
@@ -15,9 +15,8 @@ import "./header.scss";
 import { baseUrl } from "../../services/http";
 import { LoginContext } from "../../context/AuthLogin";
 
-// const { oldToken, SetOldToken } = useContext(LoginContext);
-
 function Header() {
+  const { oldToken, SetOldToken } = useContext(LoginContext);
   // language idea
   const { i18n, t } = useTranslation();
   function onLanguage(e) {
@@ -29,6 +28,7 @@ function Header() {
 
   const { data: hamkors } = useGetFetch(url);
 
+  const token = localStorage.getItem("AccessToken");
   return (
     <header>
       <div className="topNavbar">
@@ -91,11 +91,24 @@ function Header() {
             <li>
               <img src={phone} /> <p>1003</p>
             </li>
-            <Link to="/login" className="login">
-              <img src={login} alt="Kirish" />
-              {/* {oldToken ? <p>Kirish</p> : <p>Chiqish</p>} */}
-              <p>Kirish</p>
-            </Link>
+            {oldToken && token ? (
+              <a
+                href="/"
+                className="login"
+                onClick={() =>{
+                  localStorage.removeItem("RefreshToken")
+                  localStorage.removeItem("AccessToken")}
+                } 
+              >
+                <img src={login} alt="Chiqish" />
+                <p>Chiqish</p>
+              </a>
+            ) : (
+              <Link to="/login" className="login">
+                <img src={login} alt="Kirish" />
+                <p> Kirish</p>
+              </Link>
+            )}
           </ul>
           <ul className="dropdownNavbar">
             <li className="liDropLink1">
