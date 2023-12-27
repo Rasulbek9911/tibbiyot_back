@@ -34,10 +34,13 @@ function KursAmalgaOshish() {
                 data-bs-parent="#accordionFlushExample"
               >
                 <div className="accordion-body">
-                  Leverage agile frameworks to provide a robust synopsis for
-                  strategy foster collaborative thinking to further the overall
-                  value proposition. Organically grow the holistic world view of
-                  disruptive.
+                  Mazkur sayt orqali tibbiy taʼlimga oid zamonaviy bilimlarga
+                  ega boʼlish hamda shu bilan birga kasbiy faoliyatda zarur
+                  boʼlgan maʼlumotlar bilan tanishish imkoniyatlari mavjud.
+                  Bundan tashqari inson salomatligini mustahkamlash, uzoq umr
+                  koʼrish sirlarini oʼrganish va aholi orasida targʼibot
+                  ishlarini amalga oshirish uchun eng yangi maʼlumotlar bilan
+                  tanishasiz.
                 </div>
               </div>
             </div>
@@ -60,10 +63,14 @@ function KursAmalgaOshish() {
                 data-bs-parent="#accordionFlushExample"
               >
                 <div className="accordion-body">
-                  Leverage agile frameworks to provide a robust synopsis for
-                  strategy foster collaborative thinking to further the overall
-                  value proposition. Organically grow the holistic world view of
-                  disruptive.
+                  Mazkur sayt orqali tibbiy taʼlimning dolzarb muammolari
+                  boʼyicha qisqa muddatli (36-72 soatlik) kurslar ham tashkil
+                  etiladi. Unda nafaqat tibbiyot taʼlim muassasalarining
+                  professor oʼqituvchilari balki amaliyotda ishlab kelayotgan
+                  xodimlar uchun ham maʼlumotlar berib boriladi.
+                  Tinglovchilarimiz yangi maʼlumotlarni oʼqish, tajribali
+                  mutaxassislardan eshitish, audio va video tasvirlar orqali
+                  amaliy jarayonlarni koʼrishlarilar mumkin.
                 </div>
               </div>
             </div>
@@ -86,10 +93,10 @@ function KursAmalgaOshish() {
                 data-bs-parent="#accordionFlushExample"
               >
                 <div className="accordion-body">
-                  Leverage agile frameworks to provide a robust synopsis for
-                  strategy foster collaborative thinking to further the overall
-                  value proposition. Organically grow the holistic world view of
-                  disruptive.
+                  Mazkur kurslardan foydalnish uchun ushbu saytning “Fanlar
+                  boʼyicha oʼquv resurslari” boʼlimiga kirib ruyxatdan
+                  oʼtishingiz lozim boʼladi. Shundagina Siz uchun barcha
+                  maʼlumotlar ochiq boʼladi.
                 </div>
               </div>
             </div>
@@ -112,10 +119,7 @@ function KursAmalgaOshish() {
                 data-bs-parent="#accordionFlushExample"
               >
                 <div className="accordion-body">
-                  Leverage agile frameworks to provide a robust synopsis for
-                  strategy foster collaborative thinking to further the overall
-                  value proposition. Organically grow the holistic world view of
-                  disruptive.
+                Mazkur saytga joylashtirilgan platformada nafaqat Respublikamiz balki xorijiy davlatlarning elektron resurslari ham mavjud. Ulardan faoliyatingizga oid maʼlumotlar bilan atroflicha tanishish imkoniyati mavjud. Mazkur elektron resurslardan foydalanish ayniqsa tibbiyot taʼlim muassasalari oʼquvchilari va talabalari uchun tahsil olayotgan yoʼnalishlari boʼyicha qoʼshimcha manba boʼlib xizmat qiladi.
                 </div>
               </div>
             </div>

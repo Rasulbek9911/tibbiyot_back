@@ -66,9 +66,10 @@ function Login() {
           ) {
             setErr(true);
           }
-          localStorage.setItem("AccessToken", data.access);
-          localStorage.setItem("RefreshToken", data.refresh);
-          if (data.access) {
+
+          if (data?.access) {
+            localStorage.setItem("AccessToken", data.access);
+            localStorage.setItem("RefreshToken", data.refresh);
             setNavigate(true);
             setErr(false);
           }
@@ -98,6 +99,7 @@ function Login() {
             type="text"
             placeholder="Username"
             onChange={(e) => {
+              setErr(false);
               setUserName(e.target.value);
               if (e.target.value) {
                 e.target.classList.remove("errorBorder");
@@ -111,6 +113,7 @@ function Login() {
             type="password"
             placeholder="Parol"
             onChange={(e) => {
+              setErr(false);
               setPassword(e.target.value);
               if (e.target.value) {
                 e.target.classList.remove("errorBorder");
