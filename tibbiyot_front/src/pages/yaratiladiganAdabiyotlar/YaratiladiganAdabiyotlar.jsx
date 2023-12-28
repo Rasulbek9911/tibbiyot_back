@@ -13,6 +13,7 @@ import file from "../../assets/files/exe.pdf";
 
 function YaratiladiganAdabiyotlar() {
   const [obj, setObj] = useState();
+
   useEffect(() => {
     fetch("http://tibbiy-talim-resurslari.uz:90/yaratiladigan_adabiyot")
       .then((res) => res.json())
@@ -20,9 +21,10 @@ function YaratiladiganAdabiyotlar() {
   }, []);
 
   const newplugin = defaultLayoutPlugin();
-  // if (!obj) {
-  //   return <p></p>;
-  // }
+  if (!obj) {
+    return <p></p>;
+  }
+
   return (
     <div className="oquvResurslarigaQoyilganTalablar container">
       <div className="content">

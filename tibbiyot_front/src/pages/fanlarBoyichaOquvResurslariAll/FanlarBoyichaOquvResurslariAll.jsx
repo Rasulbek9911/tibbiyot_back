@@ -4,11 +4,16 @@ import { baseUrl } from "../../services/http";
 import "./fanlarBoyichaOquvResurslariAll.scss";
 // image
 import Accardion from "./Accardion";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Pagination } from "@mui/material";
 import { LoginContext } from "../../context/AuthLogin";
 
 function FanlarBoyichaOquvResurslariAll() {
+  const navigate = useNavigate();
+
+  // useContext
+  const { oldToken, SetOldToken } = useContext(LoginContext);
+
   // search Fan
   const [searchFan, setSearchFan] = useState(null);
   function SearchFan(e) {
@@ -41,16 +46,33 @@ function FanlarBoyichaOquvResurslariAll() {
       })
       .then((data) => {
         setYunalishlar(data);
-        SetOldToken(false);
+        SetOldToken(true);
       })
       .catch((err) => {
-        SetOldToken(true);
-        console.log(err);
+        if (err.message == "401") {
+          navigate("/login");
+          SetOldToken(false);
+          // =====================
+          // useEffect(() => {
+          //   fetch(`${baseUrl}/api/token/refresh/`, {
+          //     method: "POST",
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //     },
+          //     body: JSON.stringify({
+          //       refresh: localStorage.getItem("RefreshToken"),
+          //     }),
+          //   })
+          //     .then((res) => res.json())
+          //     .then((data) => {
+          //       localStorage.setItem("AccessToken", data.access);
+          //       console.log(data);
+          //     })
+          //     .catch((err) => console.log(err));
+          // }, []);
+        }
       });
   }, []);
-
-  // useContext
-  const { oldToken, SetOldToken } = useContext(LoginContext);
 
   // get fanlar
   const [fanlar, setData] = useState(null);
@@ -74,17 +96,16 @@ function FanlarBoyichaOquvResurslariAll() {
       })
       .then((data) => {
         setData(data);
-        SetOldToken(false);
+        // SetOldToken(false);
       })
       .catch((err) => {
-        console.log(err);
-        SetOldToken(true);
+        if (err.message == "401") {
+          navigate("/login");
+        }
+        // SetOldToken(true);
       });
   }, []);
 
-  if (oldToken) {
-    return <Navigate to="/login" />;
-  }
   if (!yunalishlar || !fanlar) {
     return <p></p>;
   }
