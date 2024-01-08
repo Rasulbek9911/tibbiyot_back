@@ -11,7 +11,7 @@ from .models import (
     Bolim,
     FoydaliMalumot,
     YaratiladiganAdabiyot,
-    VideoContent
+    VideoContent,
 )
 from parler.admin import TranslatableAdmin
 
