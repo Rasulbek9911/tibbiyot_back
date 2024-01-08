@@ -12,7 +12,7 @@ from .serializers import (
     BolimSerializer,
     YaratiladiganAdabiyotSerializer,
     FoydaliMalumotSerializer,
-    VideoContentSerializer
+    VideoContentSerializer,
 )
 from .models import (
     CommonInformation,
@@ -27,7 +27,7 @@ from .models import (
     Bolim,
     YaratiladiganAdabiyot,
     FoydaliMalumot,
-    VideoContent
+    VideoContent,
 )
 from .pagination import DoubleShort, ExtraShort, Middle, PageSix
 from rest_framework.response import Response
@@ -121,7 +121,8 @@ class VideoContentAllView(ListAPIView):
 
 class FoydaliMalumotView(ListAPIView):
     serializer_class = FoydaliMalumotSerializer
-    queryset = FoydaliMalumot.objects.all().order_by('?')[:1]
+    queryset = FoydaliMalumot.objects.all().order_by("?")[:1]
+
 
 class FoydaliMalumotRetriveView(RetrieveAPIView):
     serializer_class = FoydaliMalumotSerializer

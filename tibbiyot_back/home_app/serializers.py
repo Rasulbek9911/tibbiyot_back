@@ -12,7 +12,7 @@ from .models import (
     Bolim,
     YaratiladiganAdabiyot,
     FoydaliMalumot,
-    VideoContent
+    VideoContent,
 )
 from parler_rest.serializers import TranslatableModelSerializer
 from parler_rest.fields import TranslatedFieldsField

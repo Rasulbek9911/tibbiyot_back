@@ -7,8 +7,7 @@ from django.utils import timezone
 
 class CommonInformation(TranslatableModel):
     translations = TranslatedFields(
-        title=models.CharField(
-            _("title"), max_length=256, null=True, blank=True),
+        title=models.CharField(_("title"), max_length=256, null=True, blank=True),
         description=RichTextUploadingField(_("description")),
     )
 
@@ -132,7 +131,7 @@ class Yangilik(TranslatableModel):
         return self.title
 
     class Meta:
-        ordering = ('-translations__created_at', )
+        ordering = ("-translations__created_at",)
         verbose_name = _("Yangilik")
         verbose_name_plural = _("Yangiliklar")
 
@@ -197,7 +196,7 @@ class FoydaliMalumot(TranslatableModel):
 class VideoContent(TranslatableModel):
     translations = TranslatedFields(
         title=models.CharField(_("title"), max_length=256),
-        video_url=models.URLField(_('video_url'), max_length=1024),
+        video_url=models.URLField(_("video_url"), max_length=1024),
         created_at=models.DateTimeField(default=timezone.now),
         updated_at=models.DateTimeField(auto_now_add=True),
     )
@@ -206,6 +205,8 @@ class VideoContent(TranslatableModel):
         return self.title
 
     class Meta:
-        ordering = ['-translations__created_at', ]
+        ordering = [
+            "-translations__created_at",
+        ]
         verbose_name = _("VideoContent")
         verbose_name_plural = _("VideoContentlar")
