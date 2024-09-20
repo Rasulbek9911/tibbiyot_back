@@ -6,11 +6,14 @@ import SidebarMarkazHaqida from "../../components/sidebar/SidebarMarkazHaqida";
 import { baseUrl } from "../../services/http";
 
 function Umumiy() {
+
   const url = `${baseUrl}/common_information`;
   const { data, isPending, error } = useGetFetch(url);
+
   if (data == null) {
     return <p>null</p>;
   }
+
   return (
     <div className="umumiy">
       <div className="desc">

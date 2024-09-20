@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./oqxalat.scss";
 import { Link } from "react-router-dom";
 import { useGetFetch } from "../../../hooks/useGetFetch";
