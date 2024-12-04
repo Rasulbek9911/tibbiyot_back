@@ -15,7 +15,7 @@ function YaratiladiganAdabiyotlar() {
   const [obj, setObj] = useState();
 
   useEffect(() => {
-    fetch("http://tibbiy-talim-resurslari.uz:90/yaratiladigan_adabiyot")
+    fetch("http://tibbiy-talim-resurslari.uz/api/yaratiladigan_adabiyot")
       .then((res) => res.json())
       .then((data) => setObj(data[0]));
   }, []);

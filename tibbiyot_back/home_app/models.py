@@ -141,6 +141,7 @@ class Adabiyot(TranslatableModel):
         title=models.CharField(_("title"), max_length=256),
         muallif=models.CharField(_("muallif"), max_length=256),
         nashr_yil=models.DateTimeField(_("nashr_yil")),
+        file=models.FileField(_("file"), null=True, blank =True, default=None),
     )
 
     def __str__(self):

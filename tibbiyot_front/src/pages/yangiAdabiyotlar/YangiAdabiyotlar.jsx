@@ -44,6 +44,10 @@ function YangiAdabiyotlar() {
                       <span>Nashr etilgan yili:</span>
                       <p>{new Date(book.nashr_yil).getFullYear()}</p>
                     </h3>
+                    <h3 className="author">
+                      <span>File:</span>
+                      <a target='_blank' style={{paddingLeft:"10px"}} href={book.file}>yuklab olish</a>
+                    </h3>
                   </div>
                 );
               })}

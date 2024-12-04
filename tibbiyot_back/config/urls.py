@@ -28,10 +28,10 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = i18n_patterns(
-    path(_("admin/"), admin.site.urls),
+  
     path("rosetta/", include("rosetta.urls")),
     path("api-auth/", include("rest_framework.urls")),
-    path("", include("home_app.urls")),
+   
     path("ckeditor/", include("ckeditor_uploader.urls")),
 )
 urlpatterns += [
@@ -50,8 +50,10 @@ urlpatterns += [
 urlpatterns += [
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/register/", UserRegisterView.as_view()),
-    path("resurs/", include("resurs_app.urls")),
+    path("api/resurs/", include("resurs_app.urls")),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/", include("home_app.urls")),
+    path("admin/", admin.site.urls),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
